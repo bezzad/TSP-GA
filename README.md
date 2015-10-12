@@ -13,7 +13,7 @@ Travelling salesman problem (**TSP**) has been already mentioned in one of the p
 ------------------------
 ### Project Purpose
 
-**Optimization Single Population Genetic Algorithm in Parallel Computing on TSP Example **
+**Optimization Single Population Genetic Algorithm in Parallel Computing on TSP Example**
 
 ------------------------
 ### Abstract
@@ -90,6 +90,7 @@ The manager process (rank 0) performs all genetic operations for first populatio
 10. Prints the computed shortest path
 
 The operations of a worker process are as follows:
+
 1. Performs roulette wheel selection
 2. Performs recombination (select 2 points for  crossover)
 3. Performs normal random mutation (two cities are chosen and exchanged)
