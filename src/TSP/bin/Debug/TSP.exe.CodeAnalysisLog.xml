@@ -1,0 +1,1113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft visual studio 14.0\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
+<FxCopReport Version="14.0">
+ <Namespaces>
+  <Namespace Name="TSP">
+   <Messages>
+    <Message Id="TSP" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="Breaking">
+     <Issue Name="Namespace" Certainty="85" Level="Error">Correct the casing of 'TSP' in namespace name 'TSP' by changing it to 'Tsp'.</Issue>
+    </Message>
+   </Messages>
+  </Namespace>
+  <Namespace Name="TSP.GA">
+   <Messages>
+    <Message Id="TSP" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="Breaking">
+     <Issue Name="Namespace" Certainty="85" Level="Error">Correct the casing of 'TSP' in namespace name 'TSP.GA' by changing it to 'Tsp'.</Issue>
+    </Message>
+   </Messages>
+  </Namespace>
+  <Namespace Name="TSP.TimerGraphs">
+   <Messages>
+    <Message Id="TSP" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="Breaking">
+     <Issue Name="Namespace" Certainty="85" Level="Error">Correct the casing of 'TSP' in namespace name 'TSP.TimerGraphs' by changing it to 'Tsp'.</Issue>
+    </Message>
+   </Messages>
+  </Namespace>
+ </Namespaces>
+ <Targets>
+  <Target Name="D:\Send Projects\TSP\src\TSP\bin\Debug\TSP.exe">
+   <Modules>
+    <Module Name="tsp.exe">
+     <Messages>
+      <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+       <Issue Name="NoStrongName" Certainty="95" Level="CriticalError">Sign 'TSP.exe' with a strong name key.</Issue>
+      </Message>
+      <Message Id="TSP" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="Breaking">
+       <Issue Name="Assembly" Certainty="85" Level="Error">Correct the casing of 'TSP' in assembly name 'TSP.exe' by changing it to 'Tsp'.</Issue>
+      </Message>
+      <Message TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+       <Issue Certainty="95" Level="Error">Mark 'TSP.exe' with CLSCompliant(true) because it exposes externally visible types.</Issue>
+      </Message>
+      <Message TypeName="MarkAssembliesWithNeutralResourcesLanguage" Category="Microsoft.Performance" CheckId="CA1824" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+       <Issue Certainty="95" Level="Warning">Because assembly 'TSP.exe' contains a ResX-based resource file, mark it with the NeutralResourcesLanguage attribute, specifying the language of the resources within the assembly. This could improve lookup performance the first time a resource is retrieved.</Issue>
+      </Message>
+     </Messages>
+     <Namespaces>
+      <Namespace Name="TSP">
+       <Types>
+        <Type Name="EnterNumberRandomPointForm" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#InitializeComponent()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="System.Windows.Forms.Control.set_Text(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="EnterNumberRandomPointForm.Designer.cs" Line="65">Method 'EnterNumberRandomPointForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "&amp;Cancel".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="EnterNumberRandomPointForm.Designer.cs" Line="53">Method 'EnterNumberRandomPointForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "&amp;OK".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="EnterNumberRandomPointForm.Designer.cs" Line="156">Method 'EnterNumberRandomPointForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "New Map".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="EnterNumberRandomPointForm.Designer.cs" Line="76">Method 'EnterNumberRandomPointForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Please, enter a number of cities:".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="EnterNumberRandomPointForm.Designer.cs" Line="122">Method 'EnterNumberRandomPointForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Safety Less".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="EnterNumberRandomPointForm.Designer.cs" Line="131">Method 'EnterNumberRandomPointForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Safety More".</Issue>
+            </Message>
+            <Message Id="System.Windows.Forms.ToolTip.SetToolTip(System.Windows.Forms.Control,System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="EnterNumberRandomPointForm.Designer.cs" Line="95">Method 'EnterNumberRandomPointForm.InitializeComponent()' passes a literal string as parameter 'caption' of a call to 'ToolTip.SetToolTip(Control, string)'. Retrieve the following string(s) from a resource table instead: "Min:2 and Max:500".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="EnterNumberRandomPointForm.Designer.cs" Line="111">Method 'EnterNumberRandomPointForm.InitializeComponent()' passes a literal string as parameter 'caption' of a call to 'ToolTip.SetToolTip(Control, string)'. Retrieve the following string(s) from a resource table instead: "The number of replicates for the safe: 100 times".</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#tSafety_Scroll(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="System.Windows.Forms.ToolTip.SetToolTip(System.Windows.Forms.Control,System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="EnterNumberRandomPointForm.cs" Line="30">Method 'EnterNumberRandomPointForm.tSafety_Scroll(object, EventArgs)' passes a literal string as parameter 'caption' of a call to 'ToolTip.SetToolTip(Control, string)'. Retrieve the following string(s) from a resource table instead: "The number of replicates for the safe: ,  times".</Issue>
+            </Message>
+            <Message Id="System.Int32.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="D:\Send Projects\TSP\src\TSP" File="EnterNumberRandomPointForm.cs" Line="30">Because the behavior of 'int.ToString()' could vary based on the current user's locale settings, replace this call in 'EnterNumberRandomPointForm.tSafety_Scroll(object, EventArgs)' with a call to 'int.ToString(IFormatProvider)'. If the result of 'int.ToString(IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="FormAbout" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#InitializeComponent()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="System.Windows.Forms.Control.set_Text(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="FormAbout.Designer.cs" Line="63">Method 'FormAbout.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Contact to Mr. Behzad Khosravifar".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="FormAbout.Designer.cs" Line="74">Method 'FormAbout.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "TSP program\'s created by Mr. Behzad Khosravifar\r\n                         Cre...".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="FormAbout.Designer.cs" Line="88">Method 'FormAbout.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "TSP".</Issue>
+            </Message>
+            <Message Id="Behzad" TypeName="Literals should be spelled correctly" Category="Microsoft.Naming" CheckId="CA2204" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="FormAbout.Designer.cs" Line="63">Correct the spelling of the unrecognized token 'Behzad' in the literal '"Contact to Mr. Behzad Khosravifar"'.</Issue>
+             <Issue Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="FormAbout.Designer.cs" Line="74">Correct the spelling of the unrecognized token 'Behzad' in the literal '"TSP program\'s created by Mr. Behzad Khosravifar\r\n                         Cre..."'.</Issue>
+            </Message>
+            <Message Id="Creadit" TypeName="Literals should be spelled correctly" Category="Microsoft.Naming" CheckId="CA2204" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="FormAbout.Designer.cs" Line="74">Correct the spelling of the unrecognized token 'Creadit' in the literal '"TSP program\'s created by Mr. Behzad Khosravifar\r\n                         Cre..."'.</Issue>
+            </Message>
+            <Message Id="Khosravifar" TypeName="Literals should be spelled correctly" Category="Microsoft.Naming" CheckId="CA2204" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="FormAbout.Designer.cs" Line="63">Correct the spelling of the unrecognized token 'Khosravifar' in the literal '"Contact to Mr. Behzad Khosravifar"'.</Issue>
+             <Issue Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="FormAbout.Designer.cs" Line="74">Correct the spelling of the unrecognized token 'Khosravifar' in the literal '"TSP program\'s created by Mr. Behzad Khosravifar\r\n                         Cre..."'.</Issue>
+            </Message>
+            <Message Id="Mr" TypeName="Literals should be spelled correctly" Category="Microsoft.Naming" CheckId="CA2204" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="FormAbout.Designer.cs" Line="63">Correct the spelling of the unrecognized token 'Mr' in the literal '"Contact to Mr. Behzad Khosravifar"'.</Issue>
+             <Issue Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="FormAbout.Designer.cs" Line="74">Correct the spelling of the unrecognized token 'Mr' in the literal '"TSP program\'s created by Mr. Behzad Khosravifar\r\n                         Cre..."'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="MainForm" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#aboutToolStripMenuItem_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Dispose objects before losing scope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Name="NonExceptionEdge" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="1189">In method 'MainForm.aboutToolStripMenuItem_Click(object, EventArgs)', call System.IDisposable.Dispose on object 'new FormAbout()' before all references to it are out of scope.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#AboveNormalToolStripMenuItem_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+             <Issue Name="Parameter" Certainty="95" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="1355">'sender', a parameter, is cast to type 'ToolStripMenuItem' multiple times in method 'MainForm.AboveNormalToolStripMenuItem_Click(object, EventArgs)'. Cache the result of the 'as' operator or direct cast in order to eliminate the redundant castclass instruction.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#AddLineShape(Microsoft.VisualBasic.PowerPacks.LineShape)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="211">Modify 'MainForm.AddLineShape(LineShape)' to catch a more specific exception than 'object' or rethrow the exception.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#BelowNormalToolStripMenuItem_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+             <Issue Name="Parameter" Certainty="95" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="1399">'sender', a parameter, is cast to type 'ToolStripMenuItem' multiple times in method 'MainForm.BelowNormalToolStripMenuItem_Click(object, EventArgs)'. Cache the result of the 'as' operator or direct cast in order to eliminate the redundant castclass instruction.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#btnPauseResume_CheckedChanged(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="System.Threading.Thread.Resume" TypeName="AvoidCallingProblematicMethods" Category="Microsoft.Reliability" CheckId="CA2001" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+             <Issue Name="System.Threading.Thread.Resume" Certainty="75" Level="Error" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="1286">Remove the call to Thread.Resume from 'MainForm.btnPauseResume_CheckedChanged(object, EventArgs)'. Suspending and resuming threads can be dangerous if the system is in the middle of a critical operation such as executing a class constructor of an important system type or resolving security for a shared assembly.</Issue>
+            </Message>
+            <Message Id="System.Threading.Thread.Suspend" TypeName="AvoidCallingProblematicMethods" Category="Microsoft.Reliability" CheckId="CA2001" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+             <Issue Name="System.Threading.Thread.Suspend" Certainty="75" Level="Error" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="1279">Remove the call to Thread.Suspend from 'MainForm.btnPauseResume_CheckedChanged(object, EventArgs)'. Suspending and resuming threads can be dangerous if the system is in the middle of a critical operation such as executing a class constructor of an important system type or resolving security for a shared assembly.</Issue>
+            </Message>
+            <Message Id="System.Windows.Forms.Control.set_Text(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="1285">Method 'MainForm.btnPauseResume_CheckedChanged(object, EventArgs)' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "&amp;Pause Process".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="1275">Method 'MainForm.btnPauseResume_CheckedChanged(object, EventArgs)' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "&amp;Resume Process".</Issue>
+            </Message>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="1281">Modify 'MainForm.btnPauseResume_CheckedChanged(object, EventArgs)' to catch a more specific exception than 'object' or rethrow the exception.</Issue>
+             <Issue Certainty="95" Level="CriticalError" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="1287">Modify 'MainForm.btnPauseResume_CheckedChanged(object, EventArgs)' to catch a more specific exception than 'object' or rethrow the exception.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#btnStartStop_CheckedChanged(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Dispose objects before losing scope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Name="ExceptionEdge" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="1232">In method 'MainForm.btnStartStop_CheckedChanged(object, EventArgs)', object 'newLine' is not disposed along all exception paths. Call System.IDisposable.Dispose on object 'newLine' before all references to it are out of scope.</Issue>
+            </Message>
+            <Message Id="System.Windows.Forms.Control.set_Text(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="1266">Method 'MainForm.btnStartStop_CheckedChanged(object, EventArgs)' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "&amp;Start Process".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="1198">Method 'MainForm.btnStartStop_CheckedChanged(object, EventArgs)' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Stop Process ×".</Issue>
+            </Message>
+            <Message Id="System.Windows.Forms.MessageBox.Show(System.String,System.String,System.Windows.Forms.MessageBoxButtons,System.Windows.Forms.MessageBoxIcon)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="1203">Method 'MainForm.btnStartStop_CheckedChanged(object, EventArgs)' passes a literal string as parameter 'caption' of a call to 'MessageBox.Show(string, string, MessageBoxButtons, MessageBoxIcon)'. Retrieve the following string(s) from a resource table instead: "Empty Tour Exception".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="1203">Method 'MainForm.btnStartStop_CheckedChanged(object, EventArgs)' passes a literal string as parameter 'text' of a call to 'MessageBox.Show(string, string, MessageBoxButtons, MessageBoxIcon)'. Retrieve the following string(s) from a resource table instead: "Please Create some cities for a tour!".</Issue>
+            </Message>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="1252">Modify 'MainForm.btnStartStop_CheckedChanged(object, EventArgs)' to catch a more specific exception than 'object' or rethrow the exception.</Issue>
+            </Message>
+            <Message TypeName="SpecifyMessageBoxOptions" Category="Microsoft.Globalization" CheckId="CA1300" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="1203">Change 'MainForm.btnStartStop_CheckedChanged(object, EventArgs)' to call the MessageBox.Show overload that specifies MessageBoxOptions, and make sure to set MessageBoxOptions.RightAlign and MessageBoxOptions.RtlReading if RightToLeft is set to RightToLeft.Yes on the parent control.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#calcCountOfCPU()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="780">The 'this' parameter (or 'Me' in Visual Basic) of 'MainForm.calcCountOfCPU()' is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Counter_City" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="58">Remove the underscores from member name 'MainForm.Counter_City'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#create_City(System.Drawing.Point)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Dispose objects before losing scope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Name="ExceptionEdge" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="864">In method 'MainForm.create_City(Point)', object 'newCity' is not disposed along all exception paths. Call System.IDisposable.Dispose on object 'newCity' before all references to it are out of scope.</Issue>
+            </Message>
+            <Message Id="System.Int32.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="863">Because the behavior of 'int.ToString()' could vary based on the current user's locale settings, replace this call in 'MainForm.create_City(Point)' with a call to 'int.ToString(IFormatProvider)'. If the result of 'int.ToString(IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Dispose(System.Boolean)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="tokenSource" TypeName="DisposableFieldsShouldBeDisposed" Category="Microsoft.Usage" CheckId="CA2213" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="16">'MainForm' contains field 'MainForm.tokenSource' that is of IDisposable type: 'CancellationTokenSource'. Change the Dispose method on 'MainForm' to call Dispose or Close on this field.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#exportToolStripMenuItem_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Dispose objects before losing scope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Name="NonExceptionEdge" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="1046">In method 'MainForm.exportToolStripMenuItem_Click(object, EventArgs)', call System.IDisposable.Dispose on object 'sfd' before all references to it are out of scope.</Issue>
+            </Message>
+            <Message Id="System.Windows.Forms.FileDialog.set_Filter(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="1049">Method 'MainForm.exportToolStripMenuItem_Click(object, EventArgs)' passes a literal string as parameter 'value' of a call to 'FileDialog.Filter.set(string)'. Retrieve the following string(s) from a resource table instead: "Text files|*.txt".</Issue>
+            </Message>
+            <Message Id="System.Windows.Forms.FileDialog.set_Title(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="1048">Method 'MainForm.exportToolStripMenuItem_Click(object, EventArgs)' passes a literal string as parameter 'value' of a call to 'FileDialog.Title.set(string)'. Retrieve the following string(s) from a resource table instead: "Save City Positions".</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GA()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="System.Double.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="369">Because the behavior of 'double.ToString()' could vary based on the current user's locale settings, replace this call in 'MainForm.GA()' with a call to 'double.ToString(IFormatProvider)'. If the result of 'double.ToString(IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+            <Message Id="System.Int32.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="407">Because the behavior of 'int.ToString()' could vary based on the current user's locale settings, replace this call in 'MainForm.GA()' with a call to 'int.ToString(IFormatProvider)'. If the result of 'int.ToString(IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#HighToolStripMenuItem_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+             <Issue Name="Parameter" Certainty="95" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="1333">'sender', a parameter, is cast to type 'ToolStripMenuItem' multiple times in method 'MainForm.HighToolStripMenuItem_Click(object, EventArgs)'. Cache the result of the 'as' operator or direct cast in order to eliminate the redundant castclass instruction.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#importToolStripMenuItem_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Dispose objects before losing scope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Name="NonExceptionEdge" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="999">In method 'MainForm.importToolStripMenuItem_Click(object, EventArgs)', call System.IDisposable.Dispose on object 'ofd' before all references to it are out of scope.</Issue>
+            </Message>
+            <Message Id="System.Windows.Forms.FileDialog.set_Filter(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="1002">Method 'MainForm.importToolStripMenuItem_Click(object, EventArgs)' passes a literal string as parameter 'value' of a call to 'FileDialog.Filter.set(string)'. Retrieve the following string(s) from a resource table instead: "Text files|*.txt".</Issue>
+            </Message>
+            <Message Id="System.Windows.Forms.FileDialog.set_Title(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="1000">Method 'MainForm.importToolStripMenuItem_Click(object, EventArgs)' passes a literal string as parameter 'value' of a call to 'FileDialog.Title.set(string)'. Retrieve the following string(s) from a resource table instead: "Open City Positions".</Issue>
+            </Message>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="1011">Modify 'MainForm.importToolStripMenuItem_Click(object, EventArgs)' to catch a more specific exception than 'object' or rethrow the exception.</Issue>
+            </Message>
+            <Message Id="System.Int32.Parse(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternate" Certainty="95" Level="Error" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="1030">Because the behavior of 'int.Parse(string)' could vary based on the current user's locale settings, replace this call in 'MainForm.importToolStripMenuItem_Click(object, EventArgs)' with a call to 'int.Parse(string, IFormatProvider)'. If the result of 'int.Parse(string, IFormatProvider)' will be based on input from the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will based on input stored and accessed by software, such as when it is loaded from disk or from a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+             <Issue Name="IFormatProviderAlternate" Certainty="95" Level="Error" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="1034">Because the behavior of 'int.Parse(string)' could vary based on the current user's locale settings, replace this call in 'MainForm.importToolStripMenuItem_Click(object, EventArgs)' with a call to 'int.Parse(string, IFormatProvider)'. If the result of 'int.Parse(string, IFormatProvider)' will be based on input from the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will based on input stored and accessed by software, such as when it is loaded from disk or from a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#InitializeComponent()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="System.Windows.Forms.Control.set_Text(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="587">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "&amp;Pause Process".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="571">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "&amp;Start Process".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="193">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "0000".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="222">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "0000".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="207">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Generation:".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="178">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Length: ".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="285">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Number of Population:".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="633">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Travelling Sales man Problem".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="298">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "menuStrip1".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="136">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "statusStrip1".</Issue>
+            </Message>
+            <Message Id="System.Windows.Forms.DataGridViewColumn.set_HeaderText(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="268">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'DataGridViewColumn.HeaderText.set(string)'. Retrieve the following string(s) from a resource table instead: "City Positions".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="260">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'DataGridViewColumn.HeaderText.set(string)'. Retrieve the following string(s) from a resource table instead: "Number City".</Issue>
+            </Message>
+            <Message Id="System.Windows.Forms.FileDialog.set_Filter(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="274">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'FileDialog.Filter.set(string)'. Retrieve the following string(s) from a resource table instead: "Text files|*.txt".</Issue>
+            </Message>
+            <Message Id="System.Windows.Forms.ToolStripItem.set_Text(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="164">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'ToolStripItem.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "                    X = 0  ,  Y = 0".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="411">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'ToolStripItem.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "&amp;About".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="474">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'ToolStripItem.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "&amp;Above Normal".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="498">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'ToolStripItem.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "&amp;Below Normal".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="402">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'ToolStripItem.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "&amp;Dynamical Graphic".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="343">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'ToolStripItem.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "&amp;Export Cities Position".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="311">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'ToolStripItem.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "&amp;File".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="462">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'ToolStripItem.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "&amp;High".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="330">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'ToolStripItem.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "&amp;Import Cities Position".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="510">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'ToolStripItem.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "&amp;Low".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="379">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'ToolStripItem.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "&amp;New Random Cities".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="320">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'ToolStripItem.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "&amp;New".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="486">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'ToolStripItem.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "&amp;Normal".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="536">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'ToolStripItem.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "&amp;Parallel Computing".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="423">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'ToolStripItem.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "&amp;Process Setting".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="448">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'ToolStripItem.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "&amp;Realtime".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="438">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'ToolStripItem.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "&amp;Set Priority".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="371">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'ToolStripItem.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "&amp;Tools".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="148">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'ToolStripItem.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "0".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="356">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'ToolStripItem.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "E&amp;xit".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="609">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'ToolStripItem.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Generation Fitness Graph".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="142">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'ToolStripItem.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Number of City: ".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="557">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'ToolStripItem.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Paralell.For (.Net 4)".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="520">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'ToolStripItem.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Set &amp;Affinity".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="543">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'ToolStripItem.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Task Parallelism (.Net 4)".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="550">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'ToolStripItem.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Thread Parallelism (Semaphore)".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="392">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'ToolStripItem.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Timer Fitness Graph".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="596">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'ToolStripItem.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Timer Generation Graph".</Issue>
+            </Message>
+            <Message Id="System.Windows.Forms.ToolStripItem.set_ToolTipText(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="475">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'ToolStripItem.ToolTipText.set(string)'. Retrieve the following string(s) from a resource table instead: "Above Normal Processing in OS".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="499">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'ToolStripItem.ToolTipText.set(string)'. Retrieve the following string(s) from a resource table instead: "Below Normal Processing in OS".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="463">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'ToolStripItem.ToolTipText.set(string)'. Retrieve the following string(s) from a resource table instead: "High Processing in OS".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="511">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'ToolStripItem.ToolTipText.set(string)'. Retrieve the following string(s) from a resource table instead: "Low Processing in OS".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="487">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'ToolStripItem.ToolTipText.set(string)'. Retrieve the following string(s) from a resource table instead: "Normal Processing in OS".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="449">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'ToolStripItem.ToolTipText.set(string)'. Retrieve the following string(s) from a resource table instead: "Realtime Processing in OS".</Issue>
+            </Message>
+            <Message Id="System.Windows.Forms.ToolTip.SetToolTip(System.Windows.Forms.Control,System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="634">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'caption' of a call to 'ToolTip.SetToolTip(Control, string)'. Retrieve the following string(s) from a resource table instead: "Click to create a city place".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="115">Method 'MainForm.InitializeComponent()' passes a literal string as parameter 'caption' of a call to 'ToolTip.SetToolTip(Control, string)'. Retrieve the following string(s) from a resource table instead: "Number of Population Chromosomes".</Issue>
+            </Message>
+            <Message Id="Paralell" TypeName="Literals should be spelled correctly" Category="Microsoft.Naming" CheckId="CA2204" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="557">Correct the spelling of the unrecognized token 'Paralell' in the literal '"Paralell.For (.Net 4)"'.</Issue>
+            </Message>
+            <Message Id="Realtime" TypeName="Literals should be spelled correctly" Category="Microsoft.Naming" CheckId="CA2204" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="448">Correct the spelling of the unrecognized token 'Realtime' in the literal '"&amp;Realtime"'.</Issue>
+             <Issue Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.Designer.cs" Line="449">Correct the spelling of the unrecognized token 'Realtime' in the literal '"Realtime Processing in OS"'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Isotropy_Evaluatuon()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Evaluatuon" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="520">Correct the spelling of 'Evaluatuon' in member name 'MainForm.Isotropy_Evaluatuon()' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="520">Remove the underscores from member name 'MainForm.Isotropy_Evaluatuon()'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#LowToolStripMenuItem_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+             <Issue Name="Parameter" Certainty="95" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="1421">'sender', a parameter, is cast to type 'ToolStripMenuItem' multiple times in method 'MainForm.LowToolStripMenuItem_Click(object, EventArgs)'. Cache the result of the 'as' operator or direct cast in order to eliminate the redundant castclass instruction.</Issue>
+            </Message>
+            <Message TypeName="DoNotUseIdleProcessPriority" Category="Microsoft.Mobility" CheckId="CA1600" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="Breaking">
+             <Issue Certainty="90" Level="Error" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="1415">Modify method 'MainForm.LowToolStripMenuItem_Click(object, EventArgs)' to set Process.PriorityClass to something other than ProcessPriorityClass.Idle.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#MainForm_MouseMove(System.Object,System.Windows.Forms.MouseEventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="System.Windows.Forms.ToolStripItem.set_Text(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="943">Method 'MainForm.MainForm_MouseMove(object, MouseEventArgs)' passes a literal string as parameter 'value' of a call to 'ToolStripItem.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "X = ,  ,  Y = ".</Issue>
+            </Message>
+            <Message Id="System.Int32.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="943">Because the behavior of 'int.ToString()' could vary based on the current user's locale settings, replace this call in 'MainForm.MainForm_MouseMove(object, MouseEventArgs)' with a call to 'int.ToString(IFormatProvider)'. If the result of 'int.ToString(IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="943">Because the behavior of 'int.ToString()' could vary based on the current user's locale settings, replace this call in 'MainForm.MainForm_MouseMove(object, MouseEventArgs)' with a call to 'int.ToString(IFormatProvider)'. If the result of 'int.ToString(IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#newRandomCitiesToolStripMenuItem_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Dispose objects before losing scope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Name="NonExceptionEdge" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="1133">In method 'MainForm.newRandomCitiesToolStripMenuItem_Click(object, EventArgs)', call System.IDisposable.Dispose on object 'enrpForm' before all references to it are out of scope.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#newToolStripMenuItem_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="System.Windows.Forms.Control.set_Text(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="992">Method 'MainForm.newToolStripMenuItem_Click(object, EventArgs)' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "0000".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="993">Method 'MainForm.newToolStripMenuItem_Click(object, EventArgs)' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "0000".</Issue>
+            </Message>
+            <Message Id="System.Windows.Forms.ToolStripItem.set_Text(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="994">Method 'MainForm.newToolStripMenuItem_Click(object, EventArgs)' passes a literal string as parameter 'value' of a call to 'ToolStripItem.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "0".</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#NormalToolStripMenuItem_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+             <Issue Name="Parameter" Certainty="95" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="1377">'sender', a parameter, is cast to type 'ToolStripMenuItem' multiple times in method 'MainForm.NormalToolStripMenuItem_Click(object, EventArgs)'. Cache the result of the 'as' operator or direct cast in order to eliminate the redundant castclass instruction.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ovalShape_City" Kind="Field" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="Breaking">
+             <Issue Certainty="90" Level="Error">Because field 'MainForm.ovalShape_City' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
+            </Message>
+            <Message TypeName="DoNotExposeGenericLists" Category="Microsoft.Design" CheckId="CA1002" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="Error">Change 'List&lt;OvalShape&gt;' in 'MainForm.ovalShape_City' to use Collection&lt;T&gt;, ReadOnlyCollection&lt;T&gt; or KeyedCollection&lt;K,V&gt;</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ovalShape_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+             <Issue Name="Parameter" Certainty="95" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="933">'sender', a parameter, is cast to type 'OvalShape' multiple times in method 'MainForm.ovalShape_Click(object, EventArgs)'. Cache the result of the 'as' operator or direct cast in order to eliminate the redundant castclass instruction.</Issue>
+            </Message>
+            <Message Id="System.Int32.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="935">Because the behavior of 'int.ToString()' could vary based on the current user's locale settings, replace this call in 'MainForm.ovalShape_Click(object, EventArgs)' with a call to 'int.ToString(IFormatProvider)'. If the result of 'int.ToString(IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#PReproduction(System.Int32,System.Int32,System.Random)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="PReproduction" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="Breaking">
+             <Issue Name="MemberShouldBeDiscreteTerm" Certainty="80" Level="Error" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="666">The compound word 'PReproduction' in member name 'MainForm.PReproduction(int, int, Random)' exists as a discrete term. If your usage is intended to be single word, case it as 'Preproduction' or strip the first token entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#PReproduction(System.Random)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="PReproduction" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="Breaking">
+             <Issue Name="MemberShouldBeDiscreteTerm" Certainty="80" Level="Error" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="702">The compound word 'PReproduction' in member name 'MainForm.PReproduction(Random)' exists as a discrete term. If your usage is intended to be single word, case it as 'Preproduction' or strip the first token entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#RealtimeToolStripMenuItem_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+             <Issue Name="Parameter" Certainty="95" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="1311">'sender', a parameter, is cast to type 'ToolStripMenuItem' multiple times in method 'MainForm.RealtimeToolStripMenuItem_Click(object, EventArgs)'. Cache the result of the 'as' operator or direct cast in order to eliminate the redundant castclass instruction.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#refreshTour()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="892">Modify 'MainForm.refreshTour()' to catch a more specific exception than 'object' or rethrow the exception.</Issue>
+             <Issue Certainty="95" Level="CriticalError" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="905">Modify 'MainForm.refreshTour()' to catch a more specific exception than 'object' or rethrow the exception.</Issue>
+             <Issue Certainty="95" Level="CriticalError" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="921">Modify 'MainForm.refreshTour()' to catch a more specific exception than 'object' or rethrow the exception.</Issue>
+             <Issue Certainty="95" Level="CriticalError" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="926">Modify 'MainForm.refreshTour()' to catch a more specific exception than 'object' or rethrow the exception.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#RemoveLineShape(Microsoft.VisualBasic.PowerPacks.LineShape)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="229">Modify 'MainForm.RemoveLineShape(LineShape)' to catch a more specific exception than 'object' or rethrow the exception.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SetAffinityToolStripMenuItem_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Dispose objects before losing scope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Name="NonExceptionEdge" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="1430">In method 'MainForm.SetAffinityToolStripMenuItem_Click(object, EventArgs)', call System.IDisposable.Dispose on object 'new ProcessorAffinityForm()' before all references to it are out of scope.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#setCitiesPosition(System.Collections.Generic.List`1&lt;Microsoft.VisualBasic.PowerPacks.OvalShape&gt;)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="744">The 'this' parameter (or 'Me' in Visual Basic) of 'MainForm.setCitiesPosition(List&lt;OvalShape&gt;)' is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</Issue>
+            </Message>
+            <Message Id="ovalShape_City" TypeName="VariableNamesShouldNotMatchFieldNames" Category="Microsoft.Maintainability" CheckId="CA1500" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Name="Parameter" Certainty="95" Level="Error" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="744">'ovalShape_City', a parameter declared in 'MainForm.setCitiesPosition(List&lt;OvalShape&gt;)', has the same name as an instance field on the type. Change the name of one of these items.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SetGenerationText(System.String)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="177">Modify 'MainForm.SetGenerationText(string)' to catch a more specific exception than 'object' or rethrow the exception.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SetLenghtText(System.String)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="191">Modify 'MainForm.SetLenghtText(string)' to catch a more specific exception than 'object' or rethrow the exception.</Issue>
+             <Issue Certainty="95" Level="CriticalError" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="193">Modify 'MainForm.SetLenghtText(string)' to catch a more specific exception than 'object' or rethrow the exception.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SetMaxValue(System.Int32)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="159">Modify 'MainForm.SetMaxValue(int)' to catch a more specific exception than 'object' or rethrow the exception.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#setNumPopEnable(System.Boolean)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="256">Modify 'MainForm.setNumPopEnable(bool)' to catch a more specific exception than 'object' or rethrow the exception.</Issue>
+             <Issue Certainty="95" Level="CriticalError" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="258">Modify 'MainForm.setNumPopEnable(bool)' to catch a more specific exception than 'object' or rethrow the exception.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SetPoint(System.Int32,System.Drawing.Point,System.Drawing.Point)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="242">Modify 'MainForm.SetPoint(int, Point, Point)' to catch a more specific exception than 'object' or rethrow the exception.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#setThreadPriority(System.Threading.Thread)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="797">The 'this' parameter (or 'Me' in Visual Basic) of 'MainForm.setThreadPriority(Thread)' is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SetValue(System.Int32)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="135">Modify 'MainForm.SetValue(int)' to catch a more specific exception than 'object' or rethrow the exception.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Stop()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="772">Modify 'MainForm.Stop()' to catch a more specific exception than 'object' or rethrow the exception.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#UIInvoke(System.Windows.Forms.Control,System.Action)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="0" TypeName="Validate arguments of public methods" Category="Microsoft.Design" CheckId="CA1062" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="101">In externally visible method 'MainForm.UIInvoke(Control, Action)', validate parameter 'uiControl' before using it.</Issue>
+            </Message>
+            <Message Id="1" TypeName="Validate arguments of public methods" Category="Microsoft.Design" CheckId="CA1062" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="109">In externally visible method 'MainForm.UIInvoke(Control, Action)', validate parameter 'action' before using it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="ProcessorAffinityForm" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#InitializeComponent()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="System.Windows.Forms.Control.set_Text(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="ProcessorAffinityForm.designer.cs" Line="58">Method 'ProcessorAffinityForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "&amp;Cancel".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="ProcessorAffinityForm.designer.cs" Line="94">Method 'ProcessorAffinityForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "&amp;Info".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="ProcessorAffinityForm.designer.cs" Line="46">Method 'ProcessorAffinityForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "&amp;OK".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="ProcessorAffinityForm.designer.cs" Line="135">Method 'ProcessorAffinityForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Processor Affinity".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="ProcessorAffinityForm.designer.cs" Line="70">Method 'ProcessorAffinityForm.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Which processors are allowed to run\r\n(.exe)?".</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ProcessorAffinityForm_Load(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="System.Windows.Forms.Control.set_Text(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="ProcessorAffinityForm.cs" Line="22">Method 'ProcessorAffinityForm.ProcessorAffinityForm_Load(object, EventArgs)' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Which processors are allowed to run, (, .exe) ?".</Issue>
+            </Message>
+            <Message Id="System.Windows.Forms.TextBoxBase.AppendText(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="ProcessorAffinityForm.cs" Line="74">Method 'ProcessorAffinityForm.ProcessorAffinityForm_Load(object, EventArgs)' passes a literal string as parameter 'text' of a call to 'TextBoxBase.AppendText(string)'. Retrieve the following string(s) from a resource table instead: "Current Process Affinity:  ".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="ProcessorAffinityForm.cs" Line="71">Method 'ProcessorAffinityForm.ProcessorAffinityForm_Load(object, EventArgs)' passes a literal string as parameter 'text' of a call to 'TextBoxBase.AppendText(string)'. Retrieve the following string(s) from a resource table instead: "Current Process Name:  ".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="ProcessorAffinityForm.cs" Line="68">Method 'ProcessorAffinityForm.ProcessorAffinityForm_Load(object, EventArgs)' passes a literal string as parameter 'text' of a call to 'TextBoxBase.AppendText(string)'. Retrieve the following string(s) from a resource table instead: "Current Thread Name:  ".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="ProcessorAffinityForm.cs" Line="53">Method 'ProcessorAffinityForm.ProcessorAffinityForm_Load(object, EventArgs)' passes a literal string as parameter 'text' of a call to 'TextBoxBase.AppendText(string)'. Retrieve the following string(s) from a resource table instead: "Machine Name:  ".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="ProcessorAffinityForm.cs" Line="59">Method 'ProcessorAffinityForm.ProcessorAffinityForm_Load(object, EventArgs)' passes a literal string as parameter 'text' of a call to 'TextBoxBase.AppendText(string)'. Retrieve the following string(s) from a resource table instead: "Number of Processor:  ".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="ProcessorAffinityForm.cs" Line="56">Method 'ProcessorAffinityForm.ProcessorAffinityForm_Load(object, EventArgs)' passes a literal string as parameter 'text' of a call to 'TextBoxBase.AppendText(string)'. Retrieve the following string(s) from a resource table instead: "Operation System Version:  ".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="ProcessorAffinityForm.cs" Line="62">Method 'ProcessorAffinityForm.ProcessorAffinityForm_Load(object, EventArgs)' passes a literal string as parameter 'text' of a call to 'TextBoxBase.AppendText(string)'. Retrieve the following string(s) from a resource table instead: "User Domain Name:  ".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP" File="ProcessorAffinityForm.cs" Line="65">Method 'ProcessorAffinityForm.ProcessorAffinityForm_Load(object, EventArgs)' passes a literal string as parameter 'text' of a call to 'TextBoxBase.AppendText(string)'. Retrieve the following string(s) from a resource table instead: "User Name:  ".</Issue>
+            </Message>
+            <Message Id="System.Int32.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="D:\Send Projects\TSP\src\TSP" File="ProcessorAffinityForm.cs" Line="31">Because the behavior of 'int.ToString()' could vary based on the current user's locale settings, replace this call in 'ProcessorAffinityForm.ProcessorAffinityForm_Load(object, EventArgs)' with a call to 'int.ToString(IFormatProvider)'. If the result of 'int.ToString(IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="ThreadToken" Kind="Struct" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="OverrideEqualsAndOperatorEqualsOnValueTypes" Category="Microsoft.Performance" CheckId="CA1815" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+           <Issue Name="Equals" Certainty="75" Level="Warning">'ThreadToken' should override Equals.</Issue>
+           <Issue Name="op_Equality" Certainty="75" Level="Warning">'ThreadToken' should override the equality (==) and inequality (!=) operators.</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#.ctor(System.Int32,System.Int32,System.Int32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Thread" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="85" Level="Error" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="1507">In member 'ThreadToken.ThreadToken(int, int, int)', correct the casing of 'Thread' in parameter name 'Thread_No' by changing it to 'thread'.</Issue>
+            </Message>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="95" Level="Error" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="1507">In member 'ThreadToken.ThreadToken(int, int, int)', remove the underscores from parameter name 'Thread_No'.</Issue>
+             <Issue Name="MemberParameter" Certainty="95" Level="Error" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="1507">In member 'ThreadToken.ThreadToken(int, int, int)', remove the underscores from parameter name '_length'.</Issue>
+             <Issue Name="MemberParameter" Certainty="95" Level="Error" Path="D:\Send Projects\TSP\src\TSP" File="MainForm.cs" Line="1507">In member 'ThreadToken.ThreadToken(int, int, int)', remove the underscores from parameter name '_startIndex'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#length" Kind="Field" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="Breaking">
+             <Issue Certainty="90" Level="Error">Because field 'ThreadToken.length' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#No" Kind="Field" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="Breaking">
+             <Issue Certainty="90" Level="Error">Because field 'ThreadToken.No' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#rand" Kind="Field" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="Breaking">
+             <Issue Certainty="90" Level="Error">Because field 'ThreadToken.rand' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#startIndex" Kind="Field" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="Breaking">
+             <Issue Certainty="90" Level="Error">Because field 'ThreadToken.startIndex' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="TSP.GA">
+       <Types>
+        <Type Name="Chromosome" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor(System.Int32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Range" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="85" Level="Error" Path="D:\Send Projects\TSP\src\TSP\GA" File="Chromosome.cs" Line="37">In member 'Chromosome.Chromosome(int)', correct the casing of 'Range' in parameter name 'RangeOfArray' by changing it to 'range'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Calculate_Fitness()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\Send Projects\TSP\src\TSP\GA" File="Chromosome.cs" Line="59">Remove the underscores from member name 'Chromosome.Calculate_Fitness()'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#citiesPosition" Kind="Field" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotExposeGenericLists" Category="Microsoft.Design" CheckId="CA1002" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="Error">Change 'List&lt;Point&gt;' in 'Chromosome.citiesPosition' to use Collection&lt;T&gt;, ReadOnlyCollection&lt;T&gt; or KeyedCollection&lt;K,V&gt;</Issue>
+            </Message>
+            <Message TypeName="NonConstantFieldsShouldNotBeVisible" Category="Microsoft.Usage" CheckId="CA2211" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="Breaking">
+             <Issue Certainty="90" Level="Warning">Consider making 'Chromosome.citiesPosition' non-public or a constant.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Tour" Kind="Field" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="Breaking">
+             <Issue Certainty="90" Level="Error">Because field 'Chromosome.Tour' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Crossover" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#crossover(TSP.GA.Chromosome,TSP.GA.Chromosome,System.Random)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Dad" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="85" Level="Error" Path="D:\Send Projects\TSP\src\TSP\GA" File="Crossover.cs" Line="18">In member 'Crossover.crossover(this Chromosome, Chromosome, Random)', correct the casing of 'Dad' in parameter name 'Dad' by changing it to 'dad'.</Issue>
+            </Message>
+            <Message Id="Mum" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="85" Level="Error" Path="D:\Send Projects\TSP\src\TSP\GA" File="Crossover.cs" Line="18">In member 'Crossover.crossover(this Chromosome, Chromosome, Random)', correct the casing of 'Mum' in parameter name 'Mum' by changing it to 'mum'.</Issue>
+            </Message>
+            <Message Id="crossover" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="D:\Send Projects\TSP\src\TSP\GA" File="Crossover.cs" Line="18">Correct the casing of 'crossover' in member name 'Crossover.crossover(this Chromosome, Chromosome, Random)' by changing it to 'Crossover'.</Issue>
+            </Message>
+            <Message Id="0" TypeName="Validate arguments of public methods" Category="Microsoft.Design" CheckId="CA1062" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP\GA" File="Crossover.cs" Line="24">In externally visible method 'Crossover.crossover(this Chromosome, Chromosome, Random)', validate parameter 'Dad' before using it.</Issue>
+            </Message>
+            <Message Id="1" TypeName="Validate arguments of public methods" Category="Microsoft.Design" CheckId="CA1062" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP\GA" File="Crossover.cs" Line="44">In externally visible method 'Crossover.crossover(this Chromosome, Chromosome, Random)', validate parameter 'Mum' before using it.</Issue>
+            </Message>
+            <Message Id="2" TypeName="Validate arguments of public methods" Category="Microsoft.Design" CheckId="CA1062" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP\GA" File="Crossover.cs" Line="43">In externally visible method 'Crossover.crossover(this Chromosome, Chromosome, Random)', validate parameter 'rand' before using it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Mutation" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#mutation(TSP.GA.Chromosome,System.Random)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="mutation" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="D:\Send Projects\TSP\src\TSP\GA" File="Mutation.cs" Line="34">Correct the casing of 'mutation' in member name 'Mutation.mutation(this Chromosome, Random)' by changing it to 'Mutation'.</Issue>
+            </Message>
+            <Message Id="0" TypeName="Validate arguments of public methods" Category="Microsoft.Design" CheckId="CA1062" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP\GA" File="Mutation.cs" Line="34">In externally visible method 'Mutation.mutation(this Chromosome, Random)', validate parameter 'child' before using it.</Issue>
+            </Message>
+            <Message Id="1" TypeName="Validate arguments of public methods" Category="Microsoft.Design" CheckId="CA1062" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP\GA" File="Mutation.cs" Line="34">In externally visible method 'Mutation.mutation(this Chromosome, Random)', validate parameter 'rand' before using it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="TSP.TimerGraphs">
+       <Types>
+        <Type Name="GenerationFitnessGraph" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="ZedGraph.Label.set_Text(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP\TimerGraphs" File="GenerationFitnessGraph.cs" Line="33">Method 'GenerationFitnessGraph.GenerationFitnessGraph()' passes a literal string as parameter 'value' of a call to 'Label.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Fitness (Cast of Elite Chromosomes) - Distance".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP\TimerGraphs" File="GenerationFitnessGraph.cs" Line="32">Method 'GenerationFitnessGraph.GenerationFitnessGraph()' passes a literal string as parameter 'value' of a call to 'Label.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Generation (Number reproduction of population)".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP\TimerGraphs" File="GenerationFitnessGraph.cs" Line="31">Method 'GenerationFitnessGraph.GenerationFitnessGraph()' passes a literal string as parameter 'value' of a call to 'Label.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "TSP Generation-Fitness Chart Line".</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#CreateGraph(ZedGraph.ZedGraphControl)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="zgc" TypeName="VariableNamesShouldNotMatchFieldNames" Category="Microsoft.Maintainability" CheckId="CA1500" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+             <Issue Name="Parameter" Certainty="95" Level="Error" Path="D:\Send Projects\TSP\src\TSP\TimerGraphs" File="GenerationFitnessGraph.cs" Line="41">'zgc', a parameter declared in 'GenerationFitnessGraph.CreateGraph(ZedGraphControl)', has the same name as an instance field on the type. Change the name of one of these items.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#InitializeComponent()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="System.Windows.Forms.Control.set_Text(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP\TimerGraphs" File="GenerationFitnessGraph.Designer.cs" Line="68">Method 'GenerationFitnessGraph.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Generation Fitness Graph".</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#PPlist" Kind="Field" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="Breaking">
+             <Issue Certainty="90" Level="Error">Because field 'GenerationFitnessGraph.PPlist' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
+            </Message>
+            <Message Id="Plist" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'Plist' in member name 'GenerationFitnessGraph.PPlist' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#timerGraphToolStripMenuItem" Kind="Field" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="Breaking">
+             <Issue Certainty="90" Level="Error">Because field 'GenerationFitnessGraph.timerGraphToolStripMenuItem' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="TimeFitnessGraph" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="ZedGraph.Label.set_Text(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP\TimerGraphs" File="TimeFitnessGraph.cs" Line="33">Method 'TimeFitnessGraph.TimeFitnessGraph()' passes a literal string as parameter 'value' of a call to 'Label.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Fitness (Cast of Elite Chromosomes) - Distance".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP\TimerGraphs" File="TimeFitnessGraph.cs" Line="31">Method 'TimeFitnessGraph.TimeFitnessGraph()' passes a literal string as parameter 'value' of a call to 'Label.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "TSP Time-Fitness Chart Line".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP\TimerGraphs" File="TimeFitnessGraph.cs" Line="32">Method 'TimeFitnessGraph.TimeFitnessGraph()' passes a literal string as parameter 'value' of a call to 'Label.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Time (Graph timer at the moment per millisecond)".</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#CreateGraph(ZedGraph.ZedGraphControl)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="zgc" TypeName="VariableNamesShouldNotMatchFieldNames" Category="Microsoft.Maintainability" CheckId="CA1500" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+             <Issue Name="Parameter" Certainty="95" Level="Error" Path="D:\Send Projects\TSP\src\TSP\TimerGraphs" File="TimeFitnessGraph.cs" Line="42">'zgc', a parameter declared in 'TimeFitnessGraph.CreateGraph(ZedGraphControl)', has the same name as an instance field on the type. Change the name of one of these items.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#InitializeComponent()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="System.Windows.Forms.Control.set_Text(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP\TimerGraphs" File="TimeFitnessGraph.Designer.cs" Line="68">Method 'TimeFitnessGraph.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Time Fitness Graph".</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#PPlist" Kind="Field" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="Breaking">
+             <Issue Certainty="90" Level="Error">Because field 'TimeFitnessGraph.PPlist' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
+            </Message>
+            <Message Id="Plist" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'Plist' in member name 'TimeFitnessGraph.PPlist' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#timerGraphToolStripMenuItem" Kind="Field" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="Breaking">
+             <Issue Certainty="90" Level="Error">Because field 'TimeFitnessGraph.timerGraphToolStripMenuItem' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="TimeGenerationGraph" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="ZedGraph.Label.set_Text(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP\TimerGraphs" File="TimeGenerationGraph.cs" Line="33">Method 'TimeGenerationGraph.TimeGenerationGraph()' passes a literal string as parameter 'value' of a call to 'Label.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Generation (Number reproduction of population)".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP\TimerGraphs" File="TimeGenerationGraph.cs" Line="31">Method 'TimeGenerationGraph.TimeGenerationGraph()' passes a literal string as parameter 'value' of a call to 'Label.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "TSP Time-Generation Chart Line".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP\TimerGraphs" File="TimeGenerationGraph.cs" Line="32">Method 'TimeGenerationGraph.TimeGenerationGraph()' passes a literal string as parameter 'value' of a call to 'Label.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Time (Graph timer at the moment per millisecond)".</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#CreateGraph(ZedGraph.ZedGraphControl)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="zgc" TypeName="VariableNamesShouldNotMatchFieldNames" Category="Microsoft.Maintainability" CheckId="CA1500" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="NonBreaking">
+             <Issue Name="Parameter" Certainty="95" Level="Error" Path="D:\Send Projects\TSP\src\TSP\TimerGraphs" File="TimeGenerationGraph.cs" Line="41">'zgc', a parameter declared in 'TimeGenerationGraph.CreateGraph(ZedGraphControl)', has the same name as an instance field on the type. Change the name of one of these items.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#InitializeComponent()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="System.Windows.Forms.Control.set_Text(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\Send Projects\TSP\src\TSP\TimerGraphs" File="TimeGenerationGraph.Designer.cs" Line="68">Method 'TimeGenerationGraph.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Time Generation Graph".</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#PPlist" Kind="Field" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="Breaking">
+             <Issue Certainty="90" Level="Error">Because field 'TimeGenerationGraph.PPlist' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
+            </Message>
+            <Message Id="Plist" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'Plist' in member name 'TimeGenerationGraph.PPlist' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#timerGraphToolStripMenuItem" Kind="Field" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2015-10-12 13:09:57Z" FixCategory="Breaking">
+             <Issue Certainty="90" Level="Error">Because field 'TimeGenerationGraph.timerGraphToolStripMenuItem' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <Rule TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210">
+   <Name>Assemblies should have valid strong names</Name>
+   <Description>Either the assembly has no strong name, an invalid one, or the strong name is valid only because of the computer configuration. The assembly should not be deployed in this state. The most common causes of this are: 1) The assembly's contents were modified after it was signed. 2) The signing process failed. 3) The assembly was delay-signed. 4) A registry key existed that allowed the check to pass (where it would not have otherwise).</Description>
+   <Resolution Name="NoStrongName">Sign {0} with a strong name key.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182127.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">CriticalError</MessageLevel>
+   <File Name="designrules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="AvoidCallingProblematicMethods" Category="Microsoft.Reliability" CheckId="CA2001">
+   <Name>Avoid calling problematic methods</Name>
+   <Description>Avoid making unnecessary and potentially dangerous method calls.</Description>
+   <Resolution Name="System.Threading.Thread.Resume">Remove the call to Thread.Resume from {0}. Suspending and resuming threads can be dangerous if the system is in the middle of a critical operation such as executing a class constructor of an important system type or resolving security for a shared assembly.</Resolution>
+   <Resolution Name="System.Threading.Thread.Suspend">Remove the call to Thread.Suspend from {0}. Suspending and resuming threads can be dangerous if the system is in the middle of a critical operation such as executing a class constructor of an important system type or resolving security for a shared assembly.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/bb385973.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Error</MessageLevel>
+   <File Name="reliabilityrules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702">
+   <Name>Compound words should be cased correctly</Name>
+   <Description>Avoid creating compound words from terms which exist in the dictionary as discrete terms. Do not create a compound word such as 'StopWatch' or 'PopUp'. These terms are recognized in the dictionary and should be cased as 'Stopwatch' and 'Popup'.</Description>
+   <Resolution Name="MemberShouldBeDiscreteTerm">The compound word '{0}' in member name {1} exists as a discrete term. If your usage is intended to be single word, case it as '{2}' or strip the first token entirely if it represents any sort of Hungarian notation.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/bb264474.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="80">Error</MessageLevel>
+   <File Name="namingrules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="DisposableFieldsShouldBeDisposed" Category="Microsoft.Usage" CheckId="CA2213">
+   <Name>Disposable fields should be disposed</Name>
+   <Description>If a type that implements IDisposable owns fields that also implement IDisposable, the encapsulating type's Dispose() implementation should call Dispose() on each disposable field.</Description>
+   <Resolution Name="Default">{0} contains field {1} that is of IDisposable type: {2}. Change the Dispose method on {0} to call Dispose or Close on this field.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182328.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="usagerules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="Dispose objects before losing scope" Category="Microsoft.Reliability" CheckId="CA2000">
+   <Name>Dispose objects before losing scope</Name>
+   <Description>If a disposable object is not explicitly disposed before all references to it are out of scope, the object will be disposed at some indeterminate time when the garbage collector runs the finalizer of the object. Because an exceptional event might occur that will prevent the finalizer of the object from running, the object should be explicitly disposed instead.</Description>
+   <Resolution Name="ExceptionEdge">In method {0}, object {1} is not disposed along all exception paths. Call System.IDisposable.Dispose on object {1} before all references to it are out of scope.</Resolution>
+   <Resolution Name="NonExceptionEdge">In method {0}, call System.IDisposable.Dispose on object {1} before all references to it are out of scope.</Resolution>
+   <Owner>RuleOwner</Owner>
+   <Url>http://msdn.microsoft.com/library/ms182289.aspx</Url>
+   <Email />
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="dataflowrules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303">
+   <Name>Do not pass literals as localized parameters</Name>
+   <Description>Literal strings that are embedded in source code are difficult to localize. Avoid passing literal strings as arguments in circumstances where a localized string is generally expected.</Description>
+   <Resolution Name="KnownValue">Method {0} passes a literal string as parameter '{1}' of a call to {2}. Retrieve the following string(s) from a resource table instead: {3}.</Resolution>
+   <Owner>RuleOwner</Owner>
+   <Url>http://msdn.microsoft.com/library/ms182187.aspx</Url>
+   <Email />
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="dataflowrules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800">
+   <Name>Do not cast unnecessarily</Name>
+   <Description>Avoid duplicate casts where possible, since there is a cost associated with them.</Description>
+   <Resolution Name="Parameter">{0}, a parameter, is cast to type {1} multiple times in method {2}. Cache the result of the 'as' operator or direct cast in order to eliminate the redundant {3} instruction.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182271.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Warning</MessageLevel>
+   <File Name="performancerules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031">
+   <Name>Do not catch general exception types</Name>
+   <Description>You should not catch Exception or SystemException. Catching generic exception types can hide run-time problems from the library user, and can complicate debugging. You should catch only those exceptions that you can handle gracefully.</Description>
+   <Resolution Name="Default">Modify {0} to catch a more specific exception than {1} or rethrow the exception.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182137.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">CriticalError</MessageLevel>
+   <File Name="designrules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051">
+   <Name>Do not declare visible instance fields</Name>
+   <Description>Instance fields that are visible outside of the type that declares them, limit your ability to change the implementation details for those data items. Use properties instead. They do not compromise usability or performance and they do provide flexibility in that they conceal the implementation details of the underlying data.</Description>
+   <Resolution Name="Default">Because field {0} is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182141.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="90">Error</MessageLevel>
+   <File Name="designrules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="DoNotExposeGenericLists" Category="Microsoft.Design" CheckId="CA1002">
+   <Name>Do not expose generic lists</Name>
+   <Description>Do not expose List&lt;T&gt; in object models. Use Collection&lt;T&gt;, ReadOnlyCollection&lt;T&gt; or KeyedCollection&lt;K,V&gt; instead. List&lt;T&gt; is meant to be used from implementation, not in object model API. List&lt;T&gt; is optimized for performance at the cost of long term versioning. For example, if you return List&lt;T&gt; to the client code, you will not ever be able to receive notifications when client code modifies the collection.</Description>
+   <Resolution Name="Default">Change {0} in {1} to use Collection&lt;T&gt;, ReadOnlyCollection&lt;T&gt; or KeyedCollection&lt;K,V&gt;</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182142.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="designrules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="DoNotUseIdleProcessPriority" Category="Microsoft.Mobility" CheckId="CA1600">
+   <Name>Do not use idle process priority</Name>
+   <Description>Do not set process priority to Idle. Processes with System.Diagnostics.ProcessPriorityClass.Idle will occupy the CPU when it would otherwise be idle, and thereby block standby.</Description>
+   <Resolution Name="Default">Modify method {0} to set Process.PriorityClass to something other than ProcessPriorityClass.Idle.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182219.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="90">Error</MessageLevel>
+   <File Name="mobilityrules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709">
+   <Name>Identifiers should be cased correctly</Name>
+   <Description>Type, namespace, and member identifiers are Pascal-cased. Parameter identifiers are camel-cased. Two letter acronyms within these identifiers should be upper-cased, for example, use System.IO instead of System.Io. Acronyms of three or more letters should be Pascal-cased, for example, use System.Xml instead of System.XML. The pascal-casing convention capitalizes the first letter of each word, as in BackColor. The camel-casing convention formats the first letter of the first word in lowercase and capitalizes the first letter of all subsequent words, as in backgroundColor. Although it may be common practice for some two letter acronyms to not be fully capitalized, violations of this rule should not be excluded for this reason. For example, 'DbConnection', is common but incorrect; use DBConnection. A violation of this rule might be required for compatibility with existing, non-managed symbol schemes. In general, however, these symbols should not be visible outside the assembly that uses them.</Description>
+   <Resolution Name="Assembly">Correct the casing of '{0}' in assembly name {1} by changing it to '{2}'.</Resolution>
+   <Resolution Name="Member">Correct the casing of '{0}' in member name {1} by changing it to '{2}'.</Resolution>
+   <Resolution Name="MemberParameter">In member {0}, correct the casing of '{1}' in parameter name {2} by changing it to '{3}'.</Resolution>
+   <Resolution Name="Namespace">Correct the casing of '{0}' in namespace name '{1}' by changing it to '{2}'.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182240.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="85">Error</MessageLevel>
+   <File Name="namingrules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704">
+   <Name>Identifiers should be spelled correctly</Name>
+   <Description>The individual words that make up an identifier should not be abbreviated and should be spelled correctly. If this rule generates a false positive on a term that should be recognized, add the word to the FxCop custom dictionary.</Description>
+   <Resolution Name="Member">Correct the spelling of '{0}' in member name {1} or remove it entirely if it represents any sort of Hungarian notation.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/bb264492.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">CriticalWarning</MessageLevel>
+   <File Name="namingrules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707">
+   <Name>Identifiers should not contain underscores</Name>
+   <Description>Do not use underscores when specifying identifiers. Some generated Visual Studio identifiers for applications contain underscore characters. Underscore characters should generally be avoided in public identifiers.</Description>
+   <Resolution Name="Member">Remove the underscores from member name {0}.</Resolution>
+   <Resolution Name="MemberParameter">In member {0}, remove the underscores from parameter name {1}.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182245.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="namingrules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="Literals should be spelled correctly" Category="Microsoft.Naming" CheckId="CA2204">
+   <Name>Literals should be spelled correctly</Name>
+   <Description>This rule parses the literal string into words, tokenizing compound words, and checks the spelling of each word/token.</Description>
+   <Resolution Name="Default">Correct the spelling of the unrecognized token '{0}' in the literal '{1}'.</Resolution>
+   <Owner>RuleOwner</Owner>
+   <Url>http://msdn.microsoft.com/library/bb264488.aspx</Url>
+   <Email />
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="dataflowrules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014">
+   <Name>Mark assemblies with CLSCompliantAttribute</Name>
+   <Description>Assemblies should explicitly state their CLS compliance using the CLSCompliant attribute. An assembly without this attribute is not CLS-compliant. Assemblies, modules, and types can be CLS-compliant even if some parts of the assembly, module, or type are not CLS-compliant. The following rules apply: 1) If the element is marked CLSCompliant, any noncompliant members must have the CLSCompliant attribute present with its argument set to false. 2) A comparable CLS-compliant alternative member must be supplied for each member that is not CLS-compliant.</Description>
+   <Resolution Name="Default">Mark {0} with CLSCompliant(true) because it exposes externally visible types.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182156.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="designrules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="MarkAssembliesWithNeutralResourcesLanguage" Category="Microsoft.Performance" CheckId="CA1824">
+   <Name>Mark assemblies with NeutralResourcesLanguageAttribute</Name>
+   <Description>The NeutralResourcesLanguage attribute informs the ResourceManager of the language used to render the neutral culture's resources for an assembly. When looking up resources in the same culture as the neutral resources language, the ResourceManager automatically uses the resources located in the main assembly, instead of searching for a satellite assembly with the current user interface culture for the current thread. This will improve lookup performance for the first resource you load and can reduce your working set.</Description>
+   <Resolution Name="Default">Because assembly {0} contains a ResX-based resource file, mark it with the NeutralResourcesLanguage attribute, specifying the language of the resources within the assembly. This could improve lookup performance the first time a resource is retrieved.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/bb385967.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Warning</MessageLevel>
+   <File Name="performancerules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822">
+   <Name>Mark members as static</Name>
+   <Description>Methods which do not access instance data or call instance methods can be marked as static (Shared in Visual Basic). After doing so, the compiler will emit non-virtual call sites to these members which will prevent a check at runtime for each call that ensures the current object pointer is non-null. This can result in a measurable performance gain for performance-sensitive code. In some cases, the failure to access the current object instance represents a correctness issue.</Description>
+   <Resolution Name="Default">The 'this' parameter (or 'Me' in Visual Basic) of {0} is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms245046.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Warning</MessageLevel>
+   <File Name="performancerules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="NonConstantFieldsShouldNotBeVisible" Category="Microsoft.Usage" CheckId="CA2211">
+   <Name>Non-constant fields should not be visible</Name>
+   <Description>Static fields should be constant unless you carefully manage access to the field using locks. Using static variables without making them thread safe can compromise execution state. This rule applies to managed code libraries. If the analyzed assembly is an application, it is usually safe to exclude violations of this rule.</Description>
+   <Resolution Name="Default">Consider making {0} non-public or a constant.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182353.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="90">Warning</MessageLevel>
+   <File Name="usagerules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="OverrideEqualsAndOperatorEqualsOnValueTypes" Category="Microsoft.Performance" CheckId="CA1815">
+   <Name>Override equals and operator equals on value types</Name>
+   <Description>The default System.ValueType implementation might not perform as well as a custom implementation.</Description>
+   <Resolution Name="Equals">{0} should override Equals.</Resolution>
+   <Resolution Name="op_Equality">{0} should override the equality (==) and inequality (!=) operators.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182276.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="performancerules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305">
+   <Name>Specify IFormatProvider</Name>
+   <Description>If an overload exists that takes an IFormatProvider argument, it should always be called in favor of an overload that does not. Some methods in the runtime convert a value to or from a string representation and take a string parameter that contains one or more characters, called format specifiers, which indicate how the value is to be converted. If the meaning of the format specifier varies by culture, a formatting object supplies the actual characters used in the string representation. In scenarios where sorting and comparison behavior should never change between cultures, specify CultureInfo.InvariantCulture, otherwise, specify CultureInfo.CurrentCulture.</Description>
+   <Resolution Name="IFormatProviderAlternate">Because the behavior of {0} could vary based on the current user's locale settings, replace this call in {1} with a call to {2}. If the result of {2} will be based on input from the user, specify {3} as the 'IFormatProvider' parameter. Otherwise, if the result will based on input stored and accessed by software, such as when it is loaded from disk or from a database, specify {4}.</Resolution>
+   <Resolution Name="IFormatProviderAlternateString">Because the behavior of {0} could vary based on the current user's locale settings, replace this call in {1} with a call to {2}. If the result of {2} will be displayed to the user, specify {3} as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify {4}.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182190.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="globalizationrules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="SpecifyMessageBoxOptions" Category="Microsoft.Globalization" CheckId="CA1300">
+   <Name>Specify MessageBoxOptions</Name>
+   <Description>In order to run correctly on right-to-left systems, all calls to MessageBox.Show should use the overload that specifies MessageBoxOptions as an argument. Programs should detect whether they are running on a right-to-left system at run-time and pass the appropriate MessageBoxOptions value in order to display correctly.</Description>
+   <Resolution Name="Default">Change {0} to call the MessageBox.Show overload that specifies MessageBoxOptions, and make sure to set MessageBoxOptions.RightAlign and MessageBoxOptions.RtlReading if RightToLeft is set to RightToLeft.Yes on the parent control.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182191.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="globalizationrules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="Validate arguments of public methods" Category="Microsoft.Design" CheckId="CA1062">
+   <Name>Validate arguments of public methods</Name>
+   <Description>All reference arguments passed to externally visible methods should be checked against null (Nothing in VB). If appropriate, throw a System.ArgumentNullException when the argument is null.</Description>
+   <Resolution Name="Default">In externally visible method {0}, validate parameter '{1}' before using it.</Resolution>
+   <Owner>RuleOwner</Owner>
+   <Url>http://msdn.microsoft.com/library/ms182182.aspx</Url>
+   <Email />
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="dataflowrules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="VariableNamesShouldNotMatchFieldNames" Category="Microsoft.Maintainability" CheckId="CA1500">
+   <Name>Variable names should not match field names</Name>
+   <Description>Instance field and variable names should not be identical within the same scope.</Description>
+   <Resolution Name="Parameter">{0}, a parameter declared in {1}, has the same name as an instance field on the type. Change the name of one of these items.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182216.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="maintainabilityrules.dll" Version="14.0.0.0" />
+  </Rule>
+ </Rules>
+ <Localized>
+  <String Key="Category">Category</String>
+  <String Key="Certainty">Certainty</String>
+  <String Key="CollapseAll">Collapse All</String>
+  <String Key="CheckId">Check Id</String>
+  <String Key="Error">Error</String>
+  <String Key="Errors">error(s)</String>
+  <String Key="ExpandAll">Expand All</String>
+  <String Key="Help">Help</String>
+  <String Key="Line">Line</String>
+  <String Key="Messages">message(s)</String>
+  <String Key="LocationNotStoredInPdb">[Location not stored in Pdb]</String>
+  <String Key="Project">Project</String>
+  <String Key="Resolution">Resolution</String>
+  <String Key="Rule">Rule</String>
+  <String Key="RuleFile">Rule File</String>
+  <String Key="RuleDescription">Rule Description</String>
+  <String Key="Source">Source</String>
+  <String Key="Status">Status</String>
+  <String Key="Target">Target</String>
+  <String Key="Warning">Warning</String>
+  <String Key="Warnings">warning(s)</String>
+  <String Key="ReportTitle">Code Analysis Report</String>
+ </Localized>
+</FxCopReport>
