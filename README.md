@@ -13,7 +13,7 @@ Travelling salesman problem (**TSP**) has been already mentioned in one of the p
 ------------------------
 ### Project Purpose
 
-Optimization Single Population Genetic Algorithm in Parallel Computing on TSP Example 
+**Optimization Single Population Genetic Algorithm in Parallel Computing on TSP Example **
 
 ------------------------
 ### Abstract
@@ -77,23 +77,24 @@ Computation is presented in [Fig.3][3].
 *Figure 3. 	The flat parallel model of computing the TSP by genetic algorithm*
 
 The manager process (rank 0) performs all genetic operations for first population and distributes the computational load among the worker processes. It performs the following activities:
-1.	Initializes population (randomize)
-2.	Sort chromosomes by fitness value (the chromosome by lowest value is placed on first home of array)
-3.	Chromosomes elitism and select worst chromosome for delete
-4.	Define selection probability according chromosome fitness
-5.	Construction workers to the number of cores for performs the genetic operators the along produce a new generation
-6.	Wait for complete jobs of all workers
-7.	Receives the evaluated offspring from workers and save new chromosomes by formula indexed in array
-8.	Generates new population by combine any received offspring from workers in  array
-9.	Check termination conditional for cut the loop
-10.	Prints the computed shortest path
+
+1. Initializes population (randomize)
+2. Sort chromosomes by fitness value (the chromosome by lowest value is placed on first home of array)
+3. Chromosomes elitism and select worst chromosome for delete
+4. Define selection probability according chromosome fitness
+5. Construction workers to the number of cores for performs the genetic operators the along produce a new generation
+6. Wait for complete jobs of all workers
+7. Receives the evaluated offspring from workers and save new chromosomes by formula indexed in array
+8. Generates new population by combine any received offspring from workers in  array
+9. Check termination conditional for cut the loop
+10. Prints the computed shortest path
 
 The operations of a worker process are as follows:
-1.	Performs roulette wheel selection
-2.	Performs recombination (select 2 points for  crossover)
-3.	Performs normal random mutation (two cities are chosen and exchanged)
-4.	Evaluates the fitness of new chromosome
-5.	Insert offspring from specified start index related
+1. Performs roulette wheel selection
+2. Performs recombination (select 2 points for  crossover)
+3. Performs normal random mutation (two cities are chosen and exchanged)
+4. Evaluates the fitness of new chromosome
+5. Insert offspring from specified start index related
 
 
 ---------------------------
