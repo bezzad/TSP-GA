@@ -25,7 +25,7 @@ The article investigates the efficiency of the parallel computation of the singl
 
 The foundation of **P**arallel **G**enetic **A**lgorithm (**PGA**) is **G**enetic **A**lgorithm (**GA**), which is a class of global, adaptable, and probabilistic search optimization and revolution algorithm gleaned from the model of organic evolution and also simulates the genetics and evolution of biologic population in nature. GA adopts naturally evolutionary model such as selection, crossover, mutation, deletion and transference. Mathematically, this evolutionary process is a typical algorithm to find out the optimal solution via iteration search among multi-element in a **N**on-deterministic **P**olynomial-time (**NP**) set. **S**imple **G**enetic **A**lgorithm (**SGA**) can be defined as `SGA=(M, C, F, o, Ps, Pc, Pm, T)`, where `C` is a fixed bitstring code, `F` is a fitness evaluation function, `M` is an initial population of biologic colony and `Ps`, `Pc`, `Pm` are probabilities of selection, crossover and mutation respectively. 
 
-In solving NP problems by Series GA, a large sample space will increase the length of chromosomes. And this causes to increase in time complexity of the algorithm. [1] <br/>
+In solving NP problems by Series GA, a large sample space will increase the length of chromosomes. And this causes to increase in time complexity of the algorithm. `[1]` <br/>
 We've changed the serial genetic algorithm to be processed in Parallel. Finally, the time complexity is reduced.
 
 The PGA uses two major modifications compared to the genetic algorithm. Firstly, selection for mating is distributed. Individuals live in a 2-D world. Selection of a mate is done by each individual independently in its neighborhood (presented in Fig.1). Secondly, each individual may improve its fitness during its lifetime by e.g. local hill-climbing.
@@ -36,9 +36,9 @@ The PGA uses two major modifications compared to the genetic algorithm. Firstly,
 
 The PGA is totally asynchronous, running with maximal efficiency on MIMD (Multiple Instruction, Multiple Data is a technique employed to achieve parallelism in computing) parallel computers. The search strategy of the PGA is based on a small number of active and intelligent individuals, whereas a GA uses a large population of passive individuals. Abstractly, a PGA is a parallel search with information exchange between the individuals in single population. We will investigate the PGA with deceptive problems and for example, implement it on the traveling salesman problem (TSP).
 
-Parallel Computing are widely used nowadays for solving time-consuming problems. The travelling salesman problem is a well known combinatorial problem. [2]
+Parallel Computing are widely used nowadays for solving time-consuming problems. The travelling salesman problem is a well known combinatorial problem. `[2]`
 
-The idea of the TSP is to find the shortest tour of a group of cities without visiting any town twice, but, practically, it implies the construction of a Hamiltonian cycle within a weighted fully connected undirected graph. Therefore, this is a problem of combinatorial graph search. The TSP is maybe one of the most explored problems in computer science. The applications of the TSP problem are numerous – in computer wiring, job scheduling, minimizing fuel consumption in aircraft, vehicle routing problem, robot learning, etc. [3]
+The idea of the TSP is to find the shortest tour of a group of cities without visiting any town twice, but, practically, it implies the construction of a Hamiltonian cycle within a weighted fully connected undirected graph. Therefore, this is a problem of combinatorial graph search. The TSP is maybe one of the most explored problems in computer science. The applications of the TSP problem are numerous – in computer wiring, job scheduling, minimizing fuel consumption in aircraft, vehicle routing problem, robot learning, etc. `[3]`
 
 The purpose of this paper is to provide a method in which the genetic algorithm into a parallel algorithm and to be of such issues (NP) in the optimal time by use of parallel processing to solve.
 
@@ -55,7 +55,7 @@ Generally 4 models for implementation of parallel genetic algorithms have been p
 In all the above methods of the parallel genetic algorithm, the purpose of design optimization in terms of genetics was considered a better answer, not for the computational speed. 
 Multiple population GAs are also widely used parallel methods, but they are more complex than single population methods. A key characteristic of multiple-population PGAs is the migration of individuals among sub populations. Each sub population is managed by an independent SGA except that the processors periodically exchange individuals. The computational burden in this size and span causes to reduce the speed of the system. 
 
-Single-population GAs are generally implemented using a master-slave model. In the master-slave model, a single population resides in the master processor and the master processor does the selection, crossover, and mutation; only evaluation of the fitness function is distributed among slave processors. The global single-population master-slave model that we use is illustrated in [Figure 2][2]. A portion of the population is distributed to each slave processor for evaluation of the fitness value of individuals. The master processor also retains a portion of the population so that it can carry out evaluation in parallel with the slave processors. Genetic operations other than evaluation are performed only by the master processor. The master processor assigns a fraction of the population to each slave processor for each generation. [4]
+Single-population GAs are generally implemented using a master-slave model. In the master-slave model, a single population resides in the master processor and the master processor does the selection, crossover, and mutation; only evaluation of the fitness function is distributed among slave processors. The global single-population master-slave model that we use is illustrated in [Figure 2][2]. A portion of the population is distributed to each slave processor for evaluation of the fitness value of individuals. The master processor also retains a portion of the population so that it can carry out evaluation in parallel with the slave processors. Genetic operations other than evaluation are performed only by the master processor. The master processor assigns a fraction of the population to each slave processor for each generation. `[4]`
 
 
 ![Figure 2][2]
@@ -126,13 +126,13 @@ Based on the evaluation and comparison can be proved  that the mutual exclusivit
 --------------------------
 ### REFERENCES
 
-[1]	Zh. Shen and Y. Zhao, “Niche Pseudo-Parallel Genetic Algorithms for Path Optimization of Autonomous Mobile Robot - A Specific Application of TSP” unpublished.
+`[1]`	Zh. Shen and Y. Zhao, “Niche Pseudo-Parallel Genetic Algorithms for Path Optimization of Autonomous Mobile Robot - A Specific Application of TSP” unpublished.
 
-[2]	J. Hennesy, D. Patterson, Computer Architecture. A Quantative Approach, 3rd
+`[2]`	J. Hennesy, D. Patterson, Computer Architecture. A Quantative Approach, 3rd
 
-[3]	Borovska P., T. Ivanova, H. Salem. Efficient Parallel Computation of the Traveling Salesman Problem on Multicomputer Platform, Proceedings of the International Scientific Conference ‘Computer Science’2004, Sofia, Bulgaria, December 2004, pp. 74-7
+`[3]`	Borovska P., T. Ivanova, H. Salem. Efficient Parallel Computation of the Traveling Salesman Problem on Multicomputer Platform, Proceedings of the International Scientific Conference ‘Computer Science’2004, Sofia, Bulgaria, December 2004, pp. 74-7
 
-[4]	Cantú-Paz, Erick. 1998. A survey of parallel genetic algorithms. Calculateurs Paralleles. Vol. 10, No. 2. Paris: Hermes. http://www-illigal.ge.uiuc.edu/publications.php3 (Accessed 18 May 2000).
+`[4]`	Cantú-Paz, Erick. 1998. A survey of parallel genetic algorithms. Calculateurs Paralleles. Vol. 10, No. 2. Paris: Hermes. http://www-illigal.ge.uiuc.edu/publications.php3 (Accessed 18 May 2000).
 
 
 
