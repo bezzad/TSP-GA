@@ -12,7 +12,7 @@ Travelling salesman problem (**TSP**) has been already mentioned in one of the p
 
 **Note**:
 
-I am not a GA guru and I do not have any degree in GA so this article can't be used as GA book or GA tutorial. There aren't any mathematics nor logic nor algebra about GA. It's only a programmer's view on Genetic Algorithms and only example of GA coding. Use it carefully! Any comments and criticism are highly appreciated.
+I do not have any degree in GA so this article can't be used as GA book or GA tutorial. There aren't any mathematics nor logic nor algebra about GA. It's only a programmer's view on Genetic Algorithms and only example of GA coding. Use it carefully! Any comments and criticism are highly appreciated.
 
 ------------------------
 ### Project Purpose
