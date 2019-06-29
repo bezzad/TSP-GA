@@ -292,7 +292,8 @@ namespace TSP
                 _pPlistTgg[0].Clear();
             }
             //
-            Genetic = new GeneticAlgorithm(CounterCity, PopulationNumber);
+            //               N , Pop, SR, MR, ReGen, CR
+            Genetic = new GeneticAlgorithm(CounterCity, PopulationNumber, 10, 50, 1000, 75);
             
             var count = 0;
             SetValue(0);
@@ -593,7 +594,7 @@ namespace TSP
             {
                 //
                 // for send and check Father & Mather chromosome
-                Chromosome rankFather, rankMather, child;
+                Chromosome rankFather, rankMather;
 
                 // have a problem (maybe Rank_1() == Rank_2()) then Father == Mather
                 // Solve Problem by Loop checker
@@ -605,11 +606,11 @@ namespace TSP
                 while (rankFather == rankMather);
                 //
                 // CrossoverHelper
-                child = rankFather.Crossover(rankMather, rand);
+                var child = Genetic.Crossover(rankMather, rankFather);
                 //
                 //  run MutationHelper
                 //
-                child.Mutation(rand);
+                Genetic.Mutation(child, Genetic.MutationProbability);
                 //
                 // calculate children chromosome fitness
                 //
@@ -639,11 +640,11 @@ namespace TSP
                 while (rankFather == rankMather);
                 //
                 // CrossoverHelper
-                var child = rankFather.Crossover(rankMather, rand);
+                var child = Genetic.Crossover(rankMather, rankFather);
                 //
                 //  run MutationHelper
                 //
-                child.Mutation(rand);
+                Genetic.Mutation(child, Genetic.MutationProbability);
                 //
                 // calculate children chromosome fitness
                 //
@@ -666,7 +667,7 @@ namespace TSP
                         {
                             // have a problem (maybe Rank_1() == Rank_2()) then Father == Mather
                             // Solve Problem by Loop checker
-                            Chromosome rankFather, rankMather, child;
+                            Chromosome rankFather, rankMather;
                             do
                             {
                                 Monitor.Enter(rand);
@@ -677,11 +678,11 @@ namespace TSP
                             while (rankFather == rankMather);
                             //
                             // CrossoverHelper
-                            child = rankFather.Crossover(rankMather, rand);
+                            var child = Genetic.Crossover(rankMather, rankFather);
                             //
                             //  run MutationHelper
                             //
-                            child.Mutation(rand);
+                            Genetic.Mutation(child, Genetic.MutationProbability);
                             //
                             // calculate children chromosome fitness
                             //

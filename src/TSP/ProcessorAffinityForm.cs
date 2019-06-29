@@ -115,7 +115,7 @@ namespace TSP
                 long Affinity = Convert.ToInt64(BinaryValue, 2); // Convert Binary to Decimal
                 System.Diagnostics.Process.GetCurrentProcess().ProcessorAffinity = new IntPtr(Affinity);
             }
-            this.Dispose();
+            Dispose();
         }
 
         private void chlstProcessors_ItemCheck(object sender, ItemCheckEventArgs e)

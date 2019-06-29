@@ -5,11 +5,12 @@ namespace TSP.Core
     /// <summary>
     /// Get Chromosome by MutationHelper Operand
     /// </summary>
+    [Obsolete("MutationHelper is deprecated, please use GeneticAlgorithm.Mutation instead.")]
     public static class MutationHelper
     {
         // Function Uniform of class MutationHelper
         // change a bit of offspring chromosome for mutation
-        public static void Mutation (this Chromosome child, System.Random rand)
+        private static void Mutation (this Chromosome child, System.Random rand)
         {
             // Random Number for choose 2 bit between 0 ~ (offspring.Length - 1)
             // if(offspring.Length == 8)

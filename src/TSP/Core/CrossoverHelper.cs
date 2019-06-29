@@ -3,6 +3,7 @@ using System.Collections;
 
 namespace TSP.Core
 {
+    [Obsolete("CrossoverHelper is deprecated, please use GeneticAlgorithm.Crossover instead.")]
     public static class CrossoverHelper
     {
         /// <summary>
@@ -12,7 +13,7 @@ namespace TSP.Core
         /// <param name="mum">Mather chromosome for product Children Chromosome</param>
         /// <param name="rand">random reproducer</param>
         /// <returns></returns>
-        public static Chromosome Crossover(this Chromosome dad, Chromosome mum, System.Random rand)
+        private static Chromosome Crossover(this Chromosome dad, Chromosome mum, System.Random rand)
         {
             // for check written or duplicated
             bool write = false;

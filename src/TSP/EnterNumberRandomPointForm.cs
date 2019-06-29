@@ -17,7 +17,7 @@ namespace TSP
 
         public int NumberOfCities
         {
-            get { return Convert.ToInt32(this.numCities.Value); }
+            get { return Convert.ToInt32(numCities.Value); }
         }
 
         public int NumberSafety
@@ -27,7 +27,7 @@ namespace TSP
 
         private void tSafety_Scroll(object sender, EventArgs e)
         {
-            this.toolTip1.SetToolTip(this.tSafety, "The number of replicates for the safe: " + tSafety.Value.ToString() + " times");
+            toolTip1.SetToolTip(tSafety, "The number of replicates for the safe: " + tSafety.Value.ToString() + " times");
         }
     }
 }

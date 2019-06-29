@@ -8,7 +8,7 @@ namespace TSP.Core
     public class GeneticAlgorithm
     {
         public int ChromosomeLenght { get; set; }
-        public int PopunationLenght { get; set; }
+        public int PopulationLenght { get; set; }
         public int SelectionPercent { get; set; }
         public int MutationProbability { get; set; }
         public int RegenerationLimit { get; set; }
@@ -17,18 +17,83 @@ namespace TSP.Core
         public Chromosome[] Population { get; set; }
 
 
-        public GeneticAlgorithm(int len, int? popLenght = null, 
-            int? selectionPercent = null, int? mutationRate = null, 
+        public GeneticAlgorithm(int len, int? popLenght = null,
+            int? selectionPercent = null, int? mutationRate = null,
             int? maxRegenerationCount = null, int? convergenceRate = null)
         {
             ChromosomeLenght = len;
-            PopunationLenght = popLenght ?? 100;
+            PopulationLenght = popLenght ?? 100;
             SelectionPercent = selectionPercent ?? 50;
             MutationProbability = mutationRate ?? 20;
             RegenerationLimit = maxRegenerationCount ?? int.MaxValue;
             RegenerationCounter = 0;
             ConvergenceRate = convergenceRate ?? 60;
-            Population = Enumerable.Range(0, PopunationLenght).Select(r => new Chromosome(ChromosomeLenght).Randomize()).ToArray();
+            Population = Enumerable.Range(0, PopulationLenght).Select(r => new Chromosome(ChromosomeLenght).Randomize()).ToArray();
+        }
+
+        public Chromosome Start()
+        {
+            Debug.WriteLine("Starting GA ...");
+
+            while (Evaluation())
+            {
+                Selection(SelectionPercent);
+            }
+
+            return Population.First(); // Elitest chromosome
+        }
+        
+        public bool Evaluation()
+        {
+            Population = Population.OrderBy(ch => ch.Fitness).ToArray(); // sort 
+            var elit = Population.First();
+            // if GA end condition occured then return false to stop generation;
+            if (Math.Abs(elit.Fitness) < 2)
+            {
+                Debug.WriteLine("GA ended due to the best chromosome found :)");
+                return false; // stop GA
+            }
+            if (RegenerationCounter >= RegenerationLimit)
+            {
+                Debug.WriteLine("GA ended due to the limitation of regeneration!!!");
+                return false; // stop GA
+            }
+            if (Population.Count(c => Math.Abs(c.Fitness - elit.Fitness) < 1) >= Math.Min((double)ConvergenceRate / 100, 0.9) * PopulationLenght)
+            {
+                // calculate histogram to seen chromosomes convergence            
+                Debug.WriteLine("GA ended due to the convergence of chromosomes :(");
+                return false;
+            }
+
+            return true; // continue GA
+        }
+
+        public void Regeneration()
+        {
+            RegenerationCounter++;
+            if (RegenerationCounter % 100 == 0)
+                Debug.WriteLine("generation {0}, elite fitness is: {1}", RegenerationCounter, Population[0].Fitness);
+
+            var newPopulation = new List<Chromosome>();
+
+            // create new chromosomes 
+            for (var index = Population.Length; index < PopulationLenght; index++)
+            {
+                var parent = GetRandomParent();
+                var child = Crossover(parent.mom, parent.dad);
+                Mutation(child, MutationProbability);
+                child.Evaluate();
+                newPopulation.Add(child);
+            }
+
+            Population = Population.Concat(newPopulation).ToArray(); // append newPopulation to end of this.Popunation
+        }
+
+        public void Selection(int percent)
+        {
+            var keepCount = percent * PopulationLenght / 100;
+            Population = Population.Take(keepCount).ToArray(); // remove week chromosomes from keepCount index to end of array  
+            Regeneration(); // start new generation   
         }
 
         public void Mutation(Chromosome chromosome, int rate)
@@ -124,6 +189,12 @@ namespace TSP.Core
             }
 
             return child;
+        }
+
+        protected (Chromosome mom, Chromosome dad) GetRandomParent()
+        {
+            var rand = new Random(0, Population.Length - 1);
+            return (Population[rand.Next()], Population[rand.Next()]);
         }
 
     }
