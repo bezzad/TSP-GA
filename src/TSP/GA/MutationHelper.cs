@@ -3,13 +3,13 @@
 namespace TSP.GA
 {
     /// <summary>
-    /// Get Chromosome by Mutation Operand
+    /// Get Chromosome by MutationHelper Operand
     /// </summary>
-    public static class Mutation
+    public static class MutationHelper
     {
-        // Function Uniform of class Mutation
+        // Function Uniform of class MutationHelper
         // change a bit of offspring chromosome for mutation
-        public static void mutation (this Chromosome child, Random rand)
+        public static void Mutation (this Chromosome child, Random rand)
         {
             // Random Number for choose 2 bit between 0 ~ (offspring.Length - 1)
             // if(offspring.Length == 8)
@@ -17,7 +17,7 @@ namespace TSP.GA
             //                             |_|_|_|_|_|_|_|_|
             //                              0 1 2 3 4 5 6 7
             //
-            // change 2 bit locate (Greedy Mutation)
+            // change 2 bit locate (Greedy MutationHelper)
             // before Greedy Mutate:
             // chromosome Child =      |_|_|_|_|_|_|_|_| ...
             //                          0 1 2 3 4 5 6 7 
@@ -25,7 +25,7 @@ namespace TSP.GA
             // Select 2 bit (1 & 4)       *     *
             // chromosome Child =      |_|_|_|_|_|_|_|_| ...            (Step 1)
             //                          0 1 2 3 4 5 6 7 
-            // After Greedy Mutation:    
+            // After Greedy MutationHelper:    
             // Changed 2 bit (1 & 4)      *     *
             // chromosome Child =      |_|_|_|_|_|_|_|_| ...            (Step 2)
             //                          0 4 2 3 1 5 6 7 

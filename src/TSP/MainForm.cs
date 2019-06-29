@@ -30,38 +30,38 @@ namespace TSP
         PointPairList[] _pPlistTgg;
         PointPairList[] _pPlistGfg;
 
-        TimeFitnessGraph TFG;
-        TimeGenerationGraph TGG;
-        GenerationFitnessGraph GFG;
+        TimeFitnessGraph _tfg;
+        TimeGenerationGraph _tgg;
+        GenerationFitnessGraph _gfg;
 
-        CancellationTokenSource tokenSource;
+        CancellationTokenSource _tokenSource;
 
-        int countCPUCore = 1;
+        int _countCpuCore = 1;
 
-        int StartedTick = 0;
+        int _startedTick = 0;
 
         // Number Population
-        int Npop = 500;
+        int _npop = 500;
 
         // Number Keep Chromosome Size 
-        int N_keep = 0;
+        int _nKeep = 0;
 
         // Double Array Pn for save Rank
-        double[] Pn;
+        double[] _pn;
 
-        private ShapeContainer shapeContainer_allCityShape;
-        public List<OvalShape> ovalShape_City = new List<OvalShape>();
-        private List<LineShape> lineShape_Way = new List<LineShape>();
+        private ShapeContainer _shapeContainerAllCityShape;
+        public List<OvalShape> OvalShapeCity = new List<OvalShape>();
+        private List<LineShape> _lineShapeWay = new List<LineShape>();
 
         // save number of all city
-        private int counter_City = 0;
-        public int Counter_City { get { return counter_City; } } // ReadOnly
+        private int _counterCity = 0;
+        public int CounterCity { get { return _counterCity; } } // ReadOnly
 
         // Save DNA information in Chromosome Array
-        Chromosome[] pop;
+        Chromosome[] _pop;
 
         // create new process or for end process
-        Thread RunTime;
+        Thread _runTime;
 
         #endregion
 
@@ -69,17 +69,19 @@ namespace TSP
         {
             InitializeComponent();
 
-            shapeContainer_allCityShape = new ShapeContainer();
             // 
             // shapeContainer_allCityShape
             // 
-            shapeContainer_allCityShape.Location = new Point(0, 0);
-            shapeContainer_allCityShape.Margin = new Padding(0);
-            shapeContainer_allCityShape.Size = new Size(this.Width, this.Height); //800, 600);
-            shapeContainer_allCityShape.TabIndex = 0;
-            shapeContainer_allCityShape.TabStop = false;
+            _shapeContainerAllCityShape = new ShapeContainer
+            {
+                Location = new Point(0, 0),
+                Margin = new Padding(0),
+                Size = new Size(Width, Height),
+                TabIndex = 0,
+                TabStop = false
+            };
 
-            this.Controls.Add(shapeContainer_allCityShape);
+            Controls.Add(_shapeContainerAllCityShape);
             //
             // Make up some data points from the Sine function
             _pPlistTfg = new PointPairList[2]; // [0] for Series GA and [1] for PGA (Time-Fitness) data
@@ -96,7 +98,7 @@ namespace TSP
         }
 
         #region Thread Invoked
-        public static void UIInvoke(Control uiControl, Action action)
+        public static void UiInvoke(Control uiControl, Action action)
         {
             if (!uiControl.IsDisposed)
             {
@@ -122,14 +124,14 @@ namespace TSP
             // If these threads are different, it returns true.
             try
             {
-                if (this.statusStrip1.InvokeRequired)
+                if (statusStrip1.InvokeRequired)
                 {
-                    SetValueCallback d = new SetValueCallback(SetValue);
-                    this.Invoke(d, new object[] { v });
+                    var d = new SetValueCallback(SetValue);
+                    Invoke(d, new object[] { v });
                 }
                 else
                 {
-                    this.toolStripProgressBar1.Value = v;
+                    toolStripProgressBar1.Value = v;
                 }
             }
             catch { }
@@ -146,14 +148,14 @@ namespace TSP
             // If these threads are different, it returns true.
             try
             {
-                if (this.statusStrip1.InvokeRequired)
+                if (statusStrip1.InvokeRequired)
                 {
-                    SetMaxValueCallback d = new SetMaxValueCallback(SetMaxValue);
-                    this.Invoke(d, new object[] { v });
+                    var d = new SetMaxValueCallback(SetMaxValue);
+                    Invoke(d, new object[] { v });
                 }
                 else
                 {
-                    this.toolStripProgressBar1.Maximum = v;
+                    toolStripProgressBar1.Maximum = v;
                 }
             }
             catch { }
@@ -169,9 +171,9 @@ namespace TSP
             // If these threads are different, it returns true.
             try
             {
-                UIInvoke(this.lblGeneration, delegate()
+                UiInvoke(lblGeneration, delegate()
                 {
-                    this.lblGeneration.Text = v;
+                    lblGeneration.Text = v;
                 });
             }
             catch { }
@@ -183,9 +185,9 @@ namespace TSP
             {
                 try
                 {
-                    UIInvoke(this.lblLenght, delegate()
+                    UiInvoke(lblLenght, delegate()
                     {
-                        this.lblLenght.Text = v;
+                        lblLenght.Text = v;
                     });
                 }
                 catch { }
@@ -198,17 +200,20 @@ namespace TSP
         {
             try
             {
-                if (shapeContainer_allCityShape.InvokeRequired)
+                if (_shapeContainerAllCityShape.InvokeRequired)
                 {
-                    AddShapeCallback d = new AddShapeCallback(AddLineShape);
-                    this.Invoke(d, new object[] { l });
+                    var d = new AddShapeCallback(AddLineShape);
+                    Invoke(d, new object[] { l });
                 }
                 else
                 {
-                    shapeContainer_allCityShape.Shapes.Add(l);
+                    _shapeContainerAllCityShape.Shapes.Add(l);
                 }
             }
-            catch { }
+            catch
+            {
+                // ignored
+            }
         }
         // ------------------------------------------------------------
         delegate void RemoveShapeCallback(LineShape l);
@@ -216,14 +221,14 @@ namespace TSP
         {
             try
             {
-                if (shapeContainer_allCityShape.InvokeRequired)
+                if (_shapeContainerAllCityShape.InvokeRequired)
                 {
-                    RemoveShapeCallback d = new RemoveShapeCallback(RemoveLineShape);
-                    this.Invoke(d, new object[] { l });
+                    var d = new RemoveShapeCallback(RemoveLineShape);
+                    Invoke(d, new object[] { l });
                 }
                 else
                 {
-                    shapeContainer_allCityShape.Shapes.Remove(l);
+                    _shapeContainerAllCityShape.Shapes.Remove(l);
                 }
             }
             catch { }
@@ -234,23 +239,23 @@ namespace TSP
         {
             try
             {
-                lineShape_Way[l].X1 = p0.X + 10;
-                lineShape_Way[l].X2 = p1.X + 10;
-                lineShape_Way[l].Y1 = p0.Y + 10;
-                lineShape_Way[l].Y2 = p1.Y + 10;
+                _lineShapeWay[l].X1 = p0.X + 10;
+                _lineShapeWay[l].X2 = p1.X + 10;
+                _lineShapeWay[l].Y1 = p0.Y + 10;
+                _lineShapeWay[l].Y2 = p1.Y + 10;
             }
             catch { }
         }
         // ------------------------------------------------------------
-        private void setNumPopEnable(bool En)
+        private void SetNumPopEnable(bool en)
         {
             try
             {
                 try
                 {
-                    UIInvoke(this.numPopulation, delegate()
+                    UiInvoke(numPopulation, delegate()
                     {
-                        this.numPopulation.Enabled = En;
+                        numPopulation.Enabled = en;
                     });
                 }
                 catch { }
@@ -262,20 +267,20 @@ namespace TSP
         /// <summary>
         /// Genetic Algorithm for TSP
         /// </summary>
-        public void GA()
+        public void Ga()
         {
             //
             // set cities position
-            setCitiesPosition(ovalShape_City);
+            SetCitiesPosition(OvalShapeCity);
 
             //
             // initialize Parallel Computing for GA
-            countCPUCore = calcCountOfCPU(); // Calculate number of active core or CPU for this app
-            tokenSource = new CancellationTokenSource();
+            _countCpuCore = CalcCountOfCpu(); // Calculate number of active core or CPU for this app
+            _tokenSource = new CancellationTokenSource();
 
             //
             // set Start TickTime
-            StartedTick = Environment.TickCount;
+            _startedTick = Environment.TickCount;
 
             if (pGAToolStripMenuItem.Checked)  // clear Parallel points
             {
@@ -290,9 +295,9 @@ namespace TSP
                 _pPlistTgg[0].Clear();
             }
             //
-            Random rand = new Random();
+            var rand = new Random();
 
-            double EliteFitness = double.MaxValue;
+            var eliteFitness = double.MaxValue;
 
             #region Population
             // create first population by Npop = 500;
@@ -300,35 +305,35 @@ namespace TSP
             #endregion
 
             #region Evaluate Fitness
-            for (int i = 0; i < Npop; i++)
-                pop[i].Calculate_Fitness();
+            for (var i = 0; i < _npop; i++)
+                _pop[i].Calculate_Fitness();
 
             #endregion
 
-            int count = 0;
+            var count = 0;
             SetValue(0);
             //toolStripProgressBar1.Value = 0;
             //
             SetGenerationText("0000");
             //lblGeneration.Text = "0000";
             //
-            if (counter_City <= 5)
+            if (_counterCity <= 5)
                 SetMaxValue(100);
             //toolStripProgressBar1.Maximum = 100;
             //
-            else if (counter_City <= 15)
+            else if (_counterCity <= 15)
                 SetMaxValue(1000);
             //toolStripProgressBar1.Maximum = 1000;
             //
-            else if (counter_City <= 30)
+            else if (_counterCity <= 30)
                 SetMaxValue(10000);
             //toolStripProgressBar1.Maximum = 10000;
             //
-            else if (counter_City <= 40)
+            else if (_counterCity <= 40)
                 SetMaxValue(51000);
             //toolStripProgressBar1.Maximum = 51000;
             //
-            else if (counter_City <= 60)
+            else if (_counterCity <= 60)
                 SetMaxValue(100000);
             //toolStripProgressBar1.Maximum = 100000;
             //
@@ -343,30 +348,30 @@ namespace TSP
                 #region Selection
                 #region Bubble Sort all chromosome by fitness
                 // 
-                for (int i = Npop - 1; i > 0; i--)
-                    for (int j = 1; j <= i; j++)
-                        if (pop[j - 1].Fitness > pop[j].Fitness)
+                for (var i = _npop - 1; i > 0; i--)
+                    for (var j = 1; j <= i; j++)
+                        if (_pop[j - 1].Fitness > _pop[j].Fitness)
                         {
-                            Chromosome ch = pop[j - 1];
-                            pop[j - 1] = pop[j];
-                            pop[j] = ch;
+                            var ch = _pop[j - 1];
+                            _pop[j - 1] = _pop[j];
+                            _pop[j] = ch;
                         }
                 //
                 #endregion
 
                 #region Elitism
-                if (EliteFitness > pop[0].Fitness)
+                if (eliteFitness > _pop[0].Fitness)
                 {
-                    EliteFitness = pop[0].Fitness;
-                    setTimeGraph(EliteFitness, count, true);
+                    eliteFitness = _pop[0].Fitness;
+                    SetTimeGraph(eliteFitness, count, true);
 
                     if (dynamicalGraphicToolStripMenuItem.Checked) // Design if Graphically is ON
                     {
-                        refreshTour();
+                        RefreshTour();
                     }
                     //
                     //-----------------------------------------------------------------------------
-                    SetLenghtText(pop[0].Fitness.ToString());
+                    SetLenghtText(_pop[0].Fitness.ToString());
                     //
                 }
                 //else setTimeGraph(EliteFitness, count, false); // just refresh Generation Graph's
@@ -418,7 +423,7 @@ namespace TSP
             SetValue(toolStripProgressBar1.Maximum);
             //
             // UnLock numUpDownPop
-            setNumPopEnable(true);
+            SetNumPopEnable(true);
             //
             // The END
             Stop();
@@ -428,26 +433,26 @@ namespace TSP
         private void Population(Random rand)
         {
             // create first population by Npop = 500;
-            pop = new Chromosome[Npop];
-            int[] RandNum = new int[counter_City];
-            int[] RandNumber = new int[counter_City];
-            int buffer = counter_City - 1;
-            for (int l = 0; l < counter_City; l++)
-                RandNumber[l] = l;
-            for (int i = 0; i < Npop; i++)
+            _pop = new Chromosome[_npop];
+            var randNum = new int[_counterCity];
+            var randNumber = new int[_counterCity];
+            var buffer = _counterCity - 1;
+            for (var l = 0; l < _counterCity; l++)
+                randNumber[l] = l;
+            for (var i = 0; i < _npop; i++)
             {
-                RandNum = RandNumber;
-                buffer = counter_City - 1;
-                pop[i] = new Chromosome(counter_City);
+                randNum = randNumber;
+                buffer = _counterCity - 1;
+                _pop[i] = new Chromosome(_counterCity);
                 int b;
                 int buffer2;
-                for (int j = 0; j < counter_City; j++)
+                for (var j = 0; j < _counterCity; j++)
                 {
                     b = rand.Next(0, buffer);
-                    pop[i].Tour[j] = RandNum[b];
-                    buffer2 = RandNum[buffer];
-                    RandNum[buffer] = RandNum[b];
-                    RandNum[b] = buffer2;
+                    _pop[i].Tour[j] = randNum[b];
+                    buffer2 = randNum[buffer];
+                    randNum[buffer] = randNum[b];
+                    randNum[b] = buffer2;
                     buffer--;
                 }
             }
@@ -459,17 +464,17 @@ namespace TSP
         {
             // calculate Addition of all fitness
             double sumFitness = 0;
-            for (int i = 0; i < Npop; i++)
-                sumFitness += pop[i].Fitness;
+            for (var i = 0; i < _npop; i++)
+                sumFitness += _pop[i].Fitness;
             // calculate Average of All chromosome fitness 
-            double aveFitness = sumFitness / Npop; //Average of all chromosome fitness
-            N_keep = 0; // N_keep start at 0 till Average fitness chromosome
-            for (int i = 0; i < Npop; i++)
-                if (aveFitness >= pop[i].Fitness)
+            var aveFitness = sumFitness / _npop; //Average of all chromosome fitness
+            _nKeep = 0; // N_keep start at 0 till Average fitness chromosome
+            for (var i = 0; i < _npop; i++)
+                if (aveFitness >= _pop[i].Fitness)
                 {
-                    N_keep++; // counter as 0 ~ fitness Average + 1
+                    _nKeep++; // counter as 0 ~ fitness Average + 1
                 }
-            if (N_keep <= 0) N_keep = 2;
+            if (_nKeep <= 0) _nKeep = 2;
         }
 
         // Definition Probability According by chromosome fitness 
@@ -483,75 +488,75 @@ namespace TSP
             // then function is: if (n == N_keep)
             // Possibility[No.chromosome] = (n - No.chromosome) / (n(n+1) / 2)
             //
-            Pn = new double[N_keep]; // Create chromosome possibility Array Cell as N_keep
-            double Sum = ((N_keep * (N_keep + 1)) / 2); // (∑ No.chromosome) == (n(n+1) / 2)
-            Pn[0] = N_keep / Sum; // Father (Best - Elite) chromosome Possibility
-            for (int i = 1; i < N_keep; i++)
+            _pn = new double[_nKeep]; // Create chromosome possibility Array Cell as N_keep
+            double sum = ((_nKeep * (_nKeep + 1)) / 2); // (∑ No.chromosome) == (n(n+1) / 2)
+            _pn[0] = _nKeep / sum; // Father (Best - Elite) chromosome Possibility
+            for (var i = 1; i < _nKeep; i++)
             {
                 // Example: if ( Pn[Elite] = 0.4  &  Pn[Elite +1] = 0.2  &  Pn[Elite +2]  = 0.1 )
                 // Then Own:          0 <= R <= 0.4 ===> Select chromosome[Elite]
                 //                  0.4 <  R <= 0.6 ===> Select chromosome[Elite +1] 
                 //                  0.6 <  R <= 0.7 ===> Select chromosome[Elite +2]
                 // etc ... 
-                Pn[i] = ((N_keep - i) / Sum) + Pn[i - 1];
+                _pn[i] = ((_nKeep - i) / sum) + _pn[i - 1];
             }
         }
 
         // Return Father and Mather chromosome with Probability of chromosome fitness
         private Chromosome Rank(Random rand)
         {
-            double R = rand.NextDouble();
-            for (int i = 0; i < N_keep; i++)
+            var r = rand.NextDouble();
+            for (var i = 0; i < _nKeep; i++)
             {
                 // Example: if ( Pn[Elite] = 0.6  &  Pn[Elite+1] = 0.3  &  Pn[Elite+2]  = 0.1 )
                 // Then Own:          0 <= R <= 0.6  ===> Select chromosome[Elite]
                 //                  0.6 <  R <= 0.9  ===> Select chromosome[Elite +1] 
                 //                  0.9 <  R <= 1    ===> Select chromosome[Elite +2]
                 // 
-                if (R <= Pn[i]) return pop[i];
+                if (r <= _pn[i]) return _pop[i];
             }
-            return pop[0]; // if don't run Modality of 'for' then return Elite chromosome 
+            return _pop[0]; // if don't run Modality of 'for' then return Elite chromosome 
         }
 
         // Check the isotropy All REMNANT chromosome (N_keep)
         public bool Isotropy_Evaluatuon()
         {
             // Isotropy percent is 50% of All chromosome Fitness
-            int per_Iso = Convert.ToInt32(Math.Truncate(Convert.ToDouble(50 * N_keep / 100)));
-            int counter_Isotropy = 0;
-            double BestFitness = pop[0].Fitness;
+            var perIso = Convert.ToInt32(Math.Truncate(Convert.ToDouble(50 * _nKeep / 100)));
+            var counterIsotropy = 0;
+            var bestFitness = _pop[0].Fitness;
             //
             // i start at 1 because DNA_Array[0] is self BestFitness
-            for (int i = 1; i < N_keep; i++)
-                if (BestFitness >= pop[i].Fitness) counter_Isotropy++;
+            for (var i = 1; i < _nKeep; i++)
+                if (bestFitness >= _pop[i].Fitness) counterIsotropy++;
 
             // G.A Algorithm did isotropy and app Stopped
-            if (counter_Isotropy >= per_Iso) return false;
+            if (counterIsotropy >= perIso) return false;
             else return true; // G.A Algorithm didn't isotropy and app will continued
         }
 
         private void ReproduceByParallelThreads()
         {
             #region Parallel Reproduct Code
-            Thread[] th = new Thread[countCPUCore];
+            var th = new Thread[_countCpuCore];
 
             // Create a semaphore that can satisfy up to three
             // concurrent requests. Use an initial count of zero,
             // so that the entire semaphore count is initially
             // owned by the main program thread.
             //
-            Semaphore sem = new Semaphore(countCPUCore, countCPUCore);
-            bool[] isAlive = new bool[countCPUCore];
-            bool[] isCompleted = new bool[countCPUCore];
+            var sem = new Semaphore(_countCpuCore, _countCpuCore);
+            var isAlive = new bool[_countCpuCore];
+            var isCompleted = new bool[_countCpuCore];
 
-            int length = (Npop - N_keep) / countCPUCore;
-            int divideReminder = (Npop - N_keep) % countCPUCore;
+            var length = (_npop - _nKeep) / _countCpuCore;
+            var divideReminder = (_npop - _nKeep) % _countCpuCore;
 
-            for (int proc = 0; proc < th.Length; proc++)
+            for (var proc = 0; proc < th.Length; proc++)
             {
-                ThreadToken tt = new ThreadToken(proc,
-                    length + ((proc == countCPUCore - 1) ? divideReminder : 0),
-                    N_keep + (proc * length));
+                var tt = new ThreadToken(proc,
+                    length + ((proc == _countCpuCore - 1) ? divideReminder : 0),
+                    _nKeep + (proc * length));
 
                 th[proc] = new Thread(new ParameterizedThreadStart((x) =>
                 {
@@ -560,24 +565,24 @@ namespace TSP
                     isAlive[((ThreadToken)x).No] = true;
 
                     // work ...
-                    PReproduction(((ThreadToken)x).startIndex, ((ThreadToken)x).length, ((ThreadToken)x).rand);
+                    PReproduction(((ThreadToken)x).StartIndex, ((ThreadToken)x).Length, ((ThreadToken)x).Rand);
 
                     // We have finished our job, so release the semaphore
                     isCompleted[((ThreadToken)x).No] = true;
                     sem.Release();
                 }));
-                setThreadPriority(th[proc]);
+                SetThreadPriority(th[proc]);
                 th[proc].Start(tt);
             }
 
         startloop:
-            foreach (bool alive in isAlive) // wait parent starter for start all children.
+            foreach (var alive in isAlive) // wait parent starter for start all children.
                 if (!alive)
                     goto startloop;
 
         endLoop:
             sem.WaitOne();
-            foreach (bool complete in isCompleted) // wait parent to interrupt for finishes all of children jobs.
+            foreach (var complete in isCompleted) // wait parent to interrupt for finishes all of children jobs.
                 if (!complete)
                     goto endLoop;
 
@@ -588,23 +593,23 @@ namespace TSP
         private void ReproduceByParallelTask()
         {
             #region Parallel Reproduct Code
-            Task[] tasks = new Task[countCPUCore];
+            var tasks = new Task[_countCpuCore];
 
-            int length = (Npop - N_keep) / countCPUCore;
-            int divideReminder = (Npop - N_keep) % countCPUCore;
+            var length = (_npop - _nKeep) / _countCpuCore;
+            var divideReminder = (_npop - _nKeep) % _countCpuCore;
 
-            for (int proc = 0; proc < tasks.Length; proc++)
+            for (var proc = 0; proc < tasks.Length; proc++)
             {
-                ThreadToken tt = new ThreadToken(proc,
-                    length + ((proc == countCPUCore - 1) ? divideReminder : 0),
-                    N_keep + (proc * length));
+                var tt = new ThreadToken(proc,
+                    length + ((proc == _countCpuCore - 1) ? divideReminder : 0),
+                    _nKeep + (proc * length));
 
                 tasks[proc] = Task.Factory.StartNew(x =>
                 {
                     // work ...
-                    PReproduction(((ThreadToken)x).startIndex, ((ThreadToken)x).length, ((ThreadToken)x).rand);
+                    PReproduction(((ThreadToken)x).StartIndex, ((ThreadToken)x).Length, ((ThreadToken)x).Rand);
 
-                }, tt, tokenSource.Token);// TaskCreationOptions.AttachedToParent);
+                }, tt, _tokenSource.Token);// TaskCreationOptions.AttachedToParent);
             }
 
             // When user code that is running in a task creates a task with the AttachedToParent option, 
@@ -627,33 +632,33 @@ namespace TSP
         /// <param name="rand"></param>
         public void Reproduction(Random rand) // Series 
         {
-            for (int i = N_keep; i < Npop; i++)
+            for (var i = _nKeep; i < _npop; i++)
             {
                 //
                 // for send and check Father & Mather chromosome
-                Chromosome Rank_Father, Rank_Mather, child;
+                Chromosome rankFather, rankMather, child;
 
                 // have a problem (maybe Rank_1() == Rank_2()) then Father == Mather
                 // Solve Problem by Loop checker
                 do
                 {
-                    Rank_Father = Rank(rand);
-                    Rank_Mather = Rank(rand);
+                    rankFather = Rank(rand);
+                    rankMather = Rank(rand);
                 }
-                while (Rank_Father == Rank_Mather);
+                while (rankFather == rankMather);
                 //
-                // Crossover
-                child = Rank_Father.crossover(Rank_Mather, rand);
+                // CrossoverHelper
+                child = rankFather.Crossover(rankMather, rand);
                 //
-                //  run Mutation
+                //  run MutationHelper
                 //
-                child.mutation(rand);
+                child.Mutation(rand);
                 //
                 // calculate children chromosome fitness
                 //
                 child.Calculate_Fitness();
 
-                Interlocked.Exchange(ref pop[i], child); // atomic operation between multiple Thread shared
+                Interlocked.Exchange(ref _pop[i], child); // atomic operation between multiple Thread shared
             }
         }
         /// <summary>
@@ -663,33 +668,33 @@ namespace TSP
         /// <returns></returns>
         public void PReproduction(int startIndex, int length, Random rand) // Parallel 
         {
-            for (int i = startIndex; i < (startIndex + length) && i < Npop; i++)
+            for (var i = startIndex; i < (startIndex + length) && i < _npop; i++)
             {
                 //
                 // for send and check Father & Mather chromosome
-                Chromosome Rank_Father, Rank_Mather, child;
+                Chromosome rankFather, rankMather, child;
 
                 // have a problem (maybe Rank_1() == Rank_2()) then Father == Mather
                 // Solve Problem by Loop checker
                 do
                 {
-                    Rank_Father = Rank(rand);
-                    Rank_Mather = Rank(rand);
+                    rankFather = Rank(rand);
+                    rankMather = Rank(rand);
                 }
-                while (Rank_Father == Rank_Mather);
+                while (rankFather == rankMather);
                 //
-                // Crossover
-                child = Rank_Father.crossover(Rank_Mather, rand);
+                // CrossoverHelper
+                child = rankFather.Crossover(rankMather, rand);
                 //
-                //  run Mutation
+                //  run MutationHelper
                 //
-                child.mutation(rand);
+                child.Mutation(rand);
                 //
                 // calculate children chromosome fitness
                 //
                 child.Calculate_Fitness();
 
-                Interlocked.Exchange(ref pop[i], child); // atomic operation between multiple Thread shared
+                Interlocked.Exchange(ref _pop[i], child); // atomic operation between multiple Thread shared
             }
         }
         /// <summary>
@@ -699,36 +704,36 @@ namespace TSP
         /// <returns></returns>
         public void PReproduction(Random rand) // Parallel.For 
         {
-            Parallel.For(N_keep, Npop,
-                        new ParallelOptions() { MaxDegreeOfParallelism = countCPUCore, CancellationToken = tokenSource.Token },
+            Parallel.For(_nKeep, _npop,
+                        new ParallelOptions() { MaxDegreeOfParallelism = _countCpuCore, CancellationToken = _tokenSource.Token },
                         (i, loopState) =>
                         {
                             // have a problem (maybe Rank_1() == Rank_2()) then Father == Mather
                             // Solve Problem by Loop checker
-                            Chromosome Rank_Father, Rank_Mather, child;
+                            Chromosome rankFather, rankMather, child;
                             do
                             {
                                 Monitor.Enter(rand);
-                                Rank_Father = Rank(rand);
-                                Rank_Mather = Rank(rand);
+                                rankFather = Rank(rand);
+                                rankMather = Rank(rand);
                                 Monitor.Exit(rand);
                             }
-                            while (Rank_Father == Rank_Mather);
+                            while (rankFather == rankMather);
                             //
-                            // Crossover
-                            child = Rank_Father.crossover(Rank_Mather, rand);
+                            // CrossoverHelper
+                            child = rankFather.Crossover(rankMather, rand);
                             //
-                            //  run Mutation
+                            //  run MutationHelper
                             //
-                            child.mutation(rand);
+                            child.Mutation(rand);
                             //
                             // calculate children chromosome fitness
                             //
                             child.Calculate_Fitness();
 
-                            Interlocked.Exchange(ref pop[i], child); // atomic operation between multiple Thread shared
+                            Interlocked.Exchange(ref _pop[i], child); // atomic operation between multiple Thread shared
 
-                            if (tokenSource.IsCancellationRequested || tokenSource.Token.IsCancellationRequested)
+                            if (_tokenSource.IsCancellationRequested || _tokenSource.Token.IsCancellationRequested)
                             {
                                 loopState.Stop();
                                 loopState.Break();
@@ -739,25 +744,25 @@ namespace TSP
 
         #endregion
 
-        private void setCitiesPosition(List<OvalShape> ovalShape_City)
+        private void SetCitiesPosition(List<OvalShape> ovalShapeCity)
         {
-            Chromosome.citiesPosition.Clear();
-            foreach (var city in ovalShape_City)
-                Chromosome.citiesPosition.Add(city.Location);
+            Chromosome.CitiesPosition.Clear();
+            foreach (var city in ovalShapeCity)
+                Chromosome.CitiesPosition.Add(city.Location);
         }
 
         private void Stop()
         {
-            if (RunTime != null)
+            if (_runTime != null)
             {
-                if (RunTime.IsAlive)
+                if (_runTime.IsAlive)
                 {
-                    setNumPopEnable(true); // Enable population numUpDown
-                    UIInvoke(btnStartStop, delegate()
+                    SetNumPopEnable(true); // Enable population numUpDown
+                    UiInvoke(btnStartStop, delegate()
                     {
                         btnStartStop.Checked = false;
                     });
-                    UIInvoke(btnPauseResume, delegate()
+                    UiInvoke(btnPauseResume, delegate()
                     {
                         btnPauseResume.Checked = false;
                     });
@@ -765,25 +770,25 @@ namespace TSP
                     {
                         if (pGAToolStripMenuItem.Checked)
                         {
-                            tokenSource.Cancel();
+                            _tokenSource.Cancel();
                         }
-                        RunTime.Abort();
+                        _runTime.Abort();
                     }
                     catch { }
-                    refreshTour();
+                    RefreshTour();
                 }
             }
         }
 
-        private int calcCountOfCPU()
+        private int CalcCountOfCpu()
         {
-            int numCore = 0;
+            var numCore = 0;
 
             #region Find number of Active CPU or CPU core's for this Programs
 
-            long Affinity_Dec = Process.GetCurrentProcess().ProcessorAffinity.ToInt64();
-            string Affinity_Bin = Convert.ToString(Affinity_Dec, 2); // toBase 2
-            foreach (char anyOne in Affinity_Bin.ToCharArray())
+            var affinityDec = Process.GetCurrentProcess().ProcessorAffinity.ToInt64();
+            var affinityBin = Convert.ToString(affinityDec, 2); // toBase 2
+            foreach (var anyOne in affinityBin.ToCharArray())
                 if (anyOne == '1') numCore++;
 
             #endregion
@@ -792,7 +797,7 @@ namespace TSP
             return numCore;
         }
 
-        private void setThreadPriority(Thread th)
+        private void SetThreadPriority(Thread th)
         {
             if (th != null)
             {
@@ -824,26 +829,26 @@ namespace TSP
             }
         }
 
-        private void setTimeGraph(double EliteFitness, long Generation, bool FitnessRefreshed)
+        private void SetTimeGraph(double eliteFitness, long generation, bool fitnessRefreshed)
         {
-            int timeLenght = (Environment.TickCount - StartedTick) / 10; // Convert to MiliSecond
+            var timeLenght = (Environment.TickCount - _startedTick) / 10; // Convert to MiliSecond
             if (pGAToolStripMenuItem.Checked)
             {
-                if (FitnessRefreshed)
+                if (fitnessRefreshed)
                 {
-                    _pPlistTfg[1].Add(timeLenght, EliteFitness);
-                    _pPlistGfg[1].Add(Generation, EliteFitness);
+                    _pPlistTfg[1].Add(timeLenght, eliteFitness);
+                    _pPlistGfg[1].Add(generation, eliteFitness);
                 }
-                _pPlistTgg[1].Add(timeLenght, Generation);
+                _pPlistTgg[1].Add(timeLenght, generation);
             }
             else
             {
-                if (FitnessRefreshed)
+                if (fitnessRefreshed)
                 {
-                    _pPlistTfg[0].Add(timeLenght, EliteFitness);
-                    _pPlistGfg[0].Add(Generation, EliteFitness);
+                    _pPlistTfg[0].Add(timeLenght, eliteFitness);
+                    _pPlistGfg[0].Add(generation, eliteFitness);
                 }
-                _pPlistTgg[0].Add(timeLenght, Generation);
+                _pPlistTgg[0].Add(timeLenght, generation);
             }
         }
 
@@ -851,17 +856,17 @@ namespace TSP
         {
             dgvCity.Rows.Clear();
 
-            for (int count = 0; count < ovalShape_City.Count; count++)
+            for (var count = 0; count < OvalShapeCity.Count; count++)
             {
-                dgvCity.Rows.Add(new object[] { count + 1, ovalShape_City[count].Location.ToString() });
+                dgvCity.Rows.Add(new object[] { count + 1, OvalShapeCity[count].Location.ToString() });
             }
         }
 
         private void create_City(Point e)
         {
-            counter_City++;
-            toolStripStatuslblNumCity.Text = counter_City.ToString();
-            OvalShape newCity = new OvalShape();
+            _counterCity++;
+            toolStripStatuslblNumCity.Text = _counterCity.ToString();
+            var newCity = new OvalShape();
             // 
             // newCity
             // 
@@ -871,68 +876,68 @@ namespace TSP
             newCity.Cursor = Cursors.Hand;
             newCity.Location = new Point(e.X, e.Y);
             newCity.Size = new Size(20, 20);
-            newCity.Click += new EventHandler(this.ovalShape_Click);
+            newCity.Click += new EventHandler(ovalShape_Click);
 
-            ovalShape_City.Add(newCity);
-            shapeContainer_allCityShape.Shapes.Add(newCity);
+            OvalShapeCity.Add(newCity);
+            _shapeContainerAllCityShape.Shapes.Add(newCity);
         }
 
-        private void refreshTour()
+        private void RefreshTour()
         {
             try
             {
-                Point Point1, Point0;
-                for (int c = 1; c <= counter_City; c++)
+                Point point1, point0;
+                for (var c = 1; c <= _counterCity; c++)
                     try
                     {
                         //this.shapeContainer_allCityShape.Shapes.Remove(lineShape_Way[c]);
-                        RemoveLineShape(lineShape_Way[c]);
+                        RemoveLineShape(_lineShapeWay[c]);
                         //
                     }
                     catch { break; }
 
-                for (int c = 1; c < counter_City; c++)
+                for (var c = 1; c < _counterCity; c++)
                 {
                     // pop[0] is Elite chromosome or best less Distance -----------------------
-                    Point1 = ovalShape_City[pop[0].Tour[c]].Location;
-                    Point0 = ovalShape_City[pop[0].Tour[c - 1]].Location;
+                    point1 = OvalShapeCity[_pop[0].Tour[c]].Location;
+                    point0 = OvalShapeCity[_pop[0].Tour[c - 1]].Location;
 
                     try
                     {
-                        SetPointCallback d = new SetPointCallback(SetPoint);
-                        this.BeginInvoke(d, new object[] { c, Point0, Point1 });
+                        var d = new SetPointCallback(SetPoint);
+                        BeginInvoke(d, new object[] { c, point0, point1 });
                     }
                     catch { }
 
                     //this.shapeContainer_allCityShape.Shapes.Add(lineShape_Way[c]);
-                    AddLineShape(lineShape_Way[c]);
+                    AddLineShape(_lineShapeWay[c]);
                     //
                 }
                 // design line between city 0 & last city
                 // pop[0] is Elite chromosome or best less Distance
-                Point1 = ovalShape_City[pop[0].Tour[counter_City - 1]].Location;
-                Point0 = ovalShape_City[pop[0].Tour[0]].Location;
+                point1 = OvalShapeCity[_pop[0].Tour[_counterCity - 1]].Location;
+                point0 = OvalShapeCity[_pop[0].Tour[0]].Location;
 
                 try
                 {
-                    SetPointCallback d2 = new SetPointCallback(SetPoint);
-                    this.BeginInvoke(d2, new object[] { 0, Point0, Point1 });
+                    var d2 = new SetPointCallback(SetPoint);
+                    BeginInvoke(d2, new object[] { 0, point0, point1 });
                 }
                 catch { }
 
                 //this.shapeContainer_allCityShape.Shapes.Add(lineShape_Way[0]);
-                AddLineShape(lineShape_Way[0]);
+                AddLineShape(_lineShapeWay[0]);
             }
             catch { }
         }
 
         private void ovalShape_Click(object sender, EventArgs e)
         {
-            counter_City--;
-            ovalShape_City.Remove((OvalShape)sender);
-            shapeContainer_allCityShape.Shapes.Remove(((OvalShape)sender)); // Remove Selected Shape
+            _counterCity--;
+            OvalShapeCity.Remove((OvalShape)sender);
+            _shapeContainerAllCityShape.Shapes.Remove(((OvalShape)sender)); // Remove Selected Shape
             // Minus 1 as City Number's
-            toolStripStatuslblNumCity.Text = counter_City.ToString();
+            toolStripStatuslblNumCity.Text = _counterCity.ToString();
             //
             // Refresh City Positions List
             refreshDGV_CityPositions();
@@ -945,13 +950,13 @@ namespace TSP
 
         private void MainForm_MouseClick(object sender, MouseEventArgs e)
         {
-            Point mPosition = new Point(e.X - 10, e.Y - 10);
-            if (mPosition.X > 1 && mPosition.X < this.Width - 300 && mPosition.Y > 65 && mPosition.Y < this.Height - 85)
+            var mPosition = new Point(e.X - 10, e.Y - 10);
+            if (mPosition.X > 1 && mPosition.X < Width - 300 && mPosition.Y > 65 && mPosition.Y < Height - 85)
             {
                 Stop();
-                foreach (LineShape anyLine in lineShape_Way)
-                    this.shapeContainer_allCityShape.Shapes.Remove(anyLine);
-                lineShape_Way.Clear();
+                foreach (var anyLine in _lineShapeWay)
+                    _shapeContainerAllCityShape.Shapes.Remove(anyLine);
+                _lineShapeWay.Clear();
                 create_City(mPosition);
                 //
                 // Refresh City Positions List
@@ -961,7 +966,7 @@ namespace TSP
 
         private void numPopulation_ValueChanged(object sender, EventArgs e)
         {
-            Npop = (int)numPopulation.Value;
+            _npop = (int)numPopulation.Value;
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -975,12 +980,12 @@ namespace TSP
             //
             // Remove Old City and road
             //
-            foreach (var city in ovalShape_City)
-                shapeContainer_allCityShape.Shapes.Remove(city);
-            foreach (LineShape anyLine in lineShape_Way)
-                this.shapeContainer_allCityShape.Shapes.Remove(anyLine);
-            ovalShape_City.Clear();
-            counter_City = 0;
+            foreach (var city in OvalShapeCity)
+                _shapeContainerAllCityShape.Shapes.Remove(city);
+            foreach (var anyLine in _lineShapeWay)
+                _shapeContainerAllCityShape.Shapes.Remove(anyLine);
+            OvalShapeCity.Clear();
+            _counterCity = 0;
             //
             // Refresh City Position List
             //
@@ -996,7 +1001,7 @@ namespace TSP
 
         private void importToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
+            var ofd = new OpenFileDialog();
             ofd.Title = "Open City Positions";
             ofd.RestoreDirectory = true;
             ofd.Filter = "Text files|*.txt";
@@ -1006,33 +1011,33 @@ namespace TSP
             {
                 try
                 {
-                    RunTime.Abort();
+                    _runTime.Abort();
                 }
                 catch { }
 
                 //
                 // Remove Old City and road
                 //
-                foreach (var city in ovalShape_City)
-                    shapeContainer_allCityShape.Shapes.Remove(city);
-                foreach (LineShape anyLine in lineShape_Way)
-                    this.shapeContainer_allCityShape.Shapes.Remove(anyLine);
-                ovalShape_City.Clear();
-                counter_City = 0;
+                foreach (var city in OvalShapeCity)
+                    _shapeContainerAllCityShape.Shapes.Remove(city);
+                foreach (var anyLine in _lineShapeWay)
+                    _shapeContainerAllCityShape.Shapes.Remove(anyLine);
+                OvalShapeCity.Clear();
+                _counterCity = 0;
                 //
                 // Create New City
                 //
-                string[] cityPositions = File.ReadAllLines(ofd.FileName);
-                foreach (string cityP in cityPositions)
+                var cityPositions = File.ReadAllLines(ofd.FileName);
+                foreach (var cityP in cityPositions)
                 {
-                    int startIndexX = cityP.IndexOf("{X=", StringComparison.CurrentCultureIgnoreCase) + 3;
-                    int endIndexX = cityP.IndexOf(",", StringComparison.CurrentCultureIgnoreCase);
-                    int X = int.Parse(cityP.Substring(startIndexX, endIndexX - startIndexX));
+                    var startIndexX = cityP.IndexOf("{X=", StringComparison.CurrentCultureIgnoreCase) + 3;
+                    var endIndexX = cityP.IndexOf(",", StringComparison.CurrentCultureIgnoreCase);
+                    var x = int.Parse(cityP.Substring(startIndexX, endIndexX - startIndexX));
 
-                    int startIndexY = cityP.IndexOf(",Y=", StringComparison.CurrentCultureIgnoreCase) + 3;
-                    int endIndexY = cityP.IndexOf("}", StringComparison.CurrentCultureIgnoreCase);
-                    int Y = int.Parse(cityP.Substring(startIndexY, endIndexY - startIndexY));
-                    create_City(new Point(X, Y));
+                    var startIndexY = cityP.IndexOf(",Y=", StringComparison.CurrentCultureIgnoreCase) + 3;
+                    var endIndexY = cityP.IndexOf("}", StringComparison.CurrentCultureIgnoreCase);
+                    var y = int.Parse(cityP.Substring(startIndexY, endIndexY - startIndexY));
+                    create_City(new Point(x, y));
                 }
                 //
                 // Refresh City Position List
@@ -1043,7 +1048,7 @@ namespace TSP
 
         private void exportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaveFileDialog sfd = new SaveFileDialog();
+            var sfd = new SaveFileDialog();
             sfd.RestoreDirectory = true;
             sfd.Title = "Save City Positions";
             sfd.Filter = "Text files|*.txt";
@@ -1051,8 +1056,8 @@ namespace TSP
 
             if (sfd.ShowDialog() == DialogResult.OK)
             {
-                List<string> postions = new List<string>();
-                foreach (var city in ovalShape_City)
+                var postions = new List<string>();
+                foreach (var city in OvalShapeCity)
                 {
                     postions.Add(city.Location.ToString());
                 }
@@ -1062,8 +1067,8 @@ namespace TSP
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Stop();
-            for (int th = 0; th < Process.GetCurrentProcess().Threads.Count; th++)
+            Stop();
+            for (var th = 0; th < Process.GetCurrentProcess().Threads.Count; th++)
                 Process.GetCurrentProcess().Threads[th].Dispose();
             Application.Exit();
         }
@@ -1072,65 +1077,65 @@ namespace TSP
         {
             dynamicalGraphicToolStripMenuItem.Checked = !dynamicalGraphicToolStripMenuItem.Checked;
 
-            if (dynamicalGraphicToolStripMenuItem.Checked) refreshTour();
+            if (dynamicalGraphicToolStripMenuItem.Checked) RefreshTour();
 
             toolsToolStripMenuItem.ShowDropDown();
         }
 
         private void timerFitnessGraphToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (this.timerFitnessGraphToolStripMenuItem.Checked)
+            if (timerFitnessGraphToolStripMenuItem.Checked)
             {
-                TFG.Dispose();
+                _tfg.Dispose();
                 timerFitnessGraphToolStripMenuItem.Checked = false;
             }
             else if (_pPlistTfg != null)
             {
-                TFG = new TimeFitnessGraph();
-                TFG.timerGraphToolStripMenuItem = this.timerFitnessGraphToolStripMenuItem;
-                TFG.PPlist = this._pPlistTfg;
-                TFG.Show();
+                _tfg = new TimeFitnessGraph();
+                _tfg.timerGraphToolStripMenuItem = timerFitnessGraphToolStripMenuItem;
+                _tfg.PPlist = _pPlistTfg;
+                _tfg.Show();
             }
             toolsToolStripMenuItem.ShowDropDown();
         }
 
         private void generationFitnessGraphToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (this.generationFitnessGraphToolStripMenuItem.Checked)
+            if (generationFitnessGraphToolStripMenuItem.Checked)
             {
-                GFG.Dispose();
+                _gfg.Dispose();
                 generationFitnessGraphToolStripMenuItem.Checked = false;
             }
             else if (_pPlistGfg != null)
             {
-                GFG = new GenerationFitnessGraph();
-                GFG.timerGraphToolStripMenuItem = this.generationFitnessGraphToolStripMenuItem;
-                GFG.PPlist = this._pPlistGfg;
-                GFG.Show();
+                _gfg = new GenerationFitnessGraph();
+                _gfg.timerGraphToolStripMenuItem = generationFitnessGraphToolStripMenuItem;
+                _gfg.PPlist = _pPlistGfg;
+                _gfg.Show();
             }
             toolsToolStripMenuItem.ShowDropDown();
         }
 
         private void timerGenerationGraphToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (this.timerGenerationGraphToolStripMenuItem.Checked)
+            if (timerGenerationGraphToolStripMenuItem.Checked)
             {
-                TGG.Dispose();
+                _tgg.Dispose();
                 timerGenerationGraphToolStripMenuItem.Checked = false;
             }
             else if (_pPlistTgg != null)
             {
-                TGG = new TimeGenerationGraph();
-                TGG.timerGraphToolStripMenuItem = this.timerGenerationGraphToolStripMenuItem;
-                TGG.PPlist = this._pPlistTgg;
-                TGG.Show();
+                _tgg = new TimeGenerationGraph();
+                _tgg.timerGraphToolStripMenuItem = timerGenerationGraphToolStripMenuItem;
+                _tgg.PPlist = _pPlistTgg;
+                _tgg.Show();
             }
             toolsToolStripMenuItem.ShowDropDown();
         }
 
         private void newRandomCitiesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            EnterNumberRandomPointForm enrpForm = new EnterNumberRandomPointForm();
+            var enrpForm = new EnterNumberRandomPointForm();
             if (enrpForm.ShowDialog() == DialogResult.OK)
             {
                 //
@@ -1142,27 +1147,27 @@ namespace TSP
                 // Min X=1 , Y=84
                 // Max X=FormSize.X-300 , Y=FormSize.Y-85
                 // ...
-                Random rand = new Random();
-                for (int citiesNo = 0; citiesNo < enrpForm.NumberOfCities; citiesNo++)
+                var rand = new Random();
+                for (var citiesNo = 0; citiesNo < enrpForm.NumberOfCities; citiesNo++)
                 {
                     //
                     // find new safely points according by contact rate:
                     Point newPoint;
                     bool safely;
-                    Point maxSafelyPoint = new Point(); // save best safely point if do not found any safely Points
+                    var maxSafelyPoint = new Point(); // save best safely point if do not found any safely Points
                     double bestFitness = 0; /// save distance between maxSafelyPoint and newPoint
-                    int maxSafelyLoopsNo = enrpForm.NumberSafety; // Probability for find new Safely points
+                    var maxSafelyLoopsNo = enrpForm.NumberSafety; // Probability for find new Safely points
                     do
                     {
-                        newPoint = new Point(rand.Next(1, this.Width - 300), rand.Next(65, this.Height - 85));
+                        newPoint = new Point(rand.Next(1, Width - 300), rand.Next(65, Height - 85));
                         safely = true;
-                        foreach (var otherCity in ovalShape_City) // Check Safety!
+                        foreach (var otherCity in OvalShapeCity) // Check Safety!
                         {
                             if (Math.Abs(otherCity.Location.X - newPoint.X) < 24 &&
                                 Math.Abs(otherCity.Location.Y - newPoint.Y) < 24)
                             {
                                 safely = false;
-                                double fitness = Math.Sqrt(Math.Pow((newPoint.X - otherCity.Location.X), 2) + Math.Pow((newPoint.Y - otherCity.Location.Y), 2));
+                                var fitness = Math.Sqrt(Math.Pow((newPoint.X - otherCity.Location.X), 2) + Math.Pow((newPoint.Y - otherCity.Location.Y), 2));
                                 if (fitness > bestFitness)
                                 {
                                     bestFitness = fitness;
@@ -1186,7 +1191,7 @@ namespace TSP
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormAbout about = new FormAbout();
+            var about = new FormAbout();
             about.ShowDialog();
         }
 
@@ -1197,7 +1202,7 @@ namespace TSP
                 btnPauseResume.Enabled = true;
                 btnStartStop.Text = "Stop Process ×";
                 #region Start
-                if (ovalShape_City.Count <= 1)
+                if (OvalShapeCity.Count <= 1)
                 {
                     btnStartStop.Checked = false;
                     MessageBox.Show("Please Create some cities for a tour!", "Empty Tour Exception",
@@ -1214,26 +1219,26 @@ namespace TSP
                 // 
                 // lineShape_Way
                 // 
-                foreach (LineShape anyLine in lineShape_Way)
-                    shapeContainer_allCityShape.Shapes.Remove(anyLine);
-                lineShape_Way.Clear();
+                foreach (var anyLine in _lineShapeWay)
+                    _shapeContainerAllCityShape.Shapes.Remove(anyLine);
+                _lineShapeWay.Clear();
 
-                for (int ctrl = 0; ctrl < shapeContainer_allCityShape.Shapes.Count; ctrl++)
+                for (var ctrl = 0; ctrl < _shapeContainerAllCityShape.Shapes.Count; ctrl++)
                 {
-                    if (shapeContainer_allCityShape.Shapes.get_Item(ctrl).GetType() != typeof(OvalShape))
+                    if (_shapeContainerAllCityShape.Shapes.get_Item(ctrl).GetType() != typeof(OvalShape))
                     {
-                        shapeContainer_allCityShape.Shapes.RemoveAt(ctrl);
+                        _shapeContainerAllCityShape.Shapes.RemoveAt(ctrl);
                     }
                 }
-                shapeContainer_allCityShape.Refresh();
+                _shapeContainerAllCityShape.Refresh();
 
-                for (int c = 0; c < ovalShape_City.Count; c++)
+                for (var c = 0; c < OvalShapeCity.Count; c++)
                 {
-                    LineShape newLine = new LineShape();
+                    var newLine = new LineShape();
                     newLine.BorderColor = Color.Blue;
                     newLine.Cursor = Cursors.Default;
                     newLine.Enabled = false;
-                    lineShape_Way.Add(newLine);
+                    _lineShapeWay.Add(newLine);
                 }
                 //
                 //
@@ -1242,18 +1247,18 @@ namespace TSP
                 // Solve();
                 try
                 {
-                    if (!RunTime.IsAlive)
+                    if (!_runTime.IsAlive)
                     {
-                        RunTime = new Thread(new ThreadStart(GA));
-                        setThreadPriority(RunTime);
-                        RunTime.Start();
+                        _runTime = new Thread(new ThreadStart(Ga));
+                        SetThreadPriority(_runTime);
+                        _runTime.Start();
                     }
                 }
                 catch
                 {
-                    RunTime = new Thread(new ThreadStart(GA));
-                    setThreadPriority(RunTime);
-                    RunTime.Start();
+                    _runTime = new Thread(new ThreadStart(Ga));
+                    SetThreadPriority(_runTime);
+                    _runTime.Start();
                 }
                 #endregion
             }
@@ -1275,21 +1280,21 @@ namespace TSP
                 btnPauseResume.Text = "&Resume Process";
                 try
                 {
-                    if (RunTime.IsAlive)
-                        RunTime.Suspend();
+                    if (_runTime.IsAlive)
+                        _runTime.Suspend();
                 }
                 catch { }
             }
             else
             {
                 btnPauseResume.Text = "&Pause Process";
-                try { if (RunTime.ThreadState == ThreadState.Suspended) RunTime.Resume(); }
+                try { if (_runTime.ThreadState == ThreadState.Suspended) _runTime.Resume(); }
                 catch { }
 
-                foreach (LineShape anyLine in lineShape_Way)
-                    this.shapeContainer_allCityShape.Shapes.Remove(anyLine);
-                foreach (LineShape anyLine in lineShape_Way)
-                    this.shapeContainer_allCityShape.Shapes.Add(anyLine);
+                foreach (var anyLine in _lineShapeWay)
+                    _shapeContainerAllCityShape.Shapes.Remove(anyLine);
+                foreach (var anyLine in _lineShapeWay)
+                    _shapeContainerAllCityShape.Shapes.Add(anyLine);
             }
         }
 
@@ -1312,7 +1317,7 @@ namespace TSP
                 ProcessPriorityToolStripMenuItem.ShowDropDown();
                 SetPriorityToolStripMenuItem.ShowDropDown();
             }
-            setThreadPriority(RunTime);
+            SetThreadPriority(_runTime);
         }
 
         private void HighToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1334,7 +1339,7 @@ namespace TSP
                 ProcessPriorityToolStripMenuItem.ShowDropDown();
                 SetPriorityToolStripMenuItem.ShowDropDown();
             }
-            setThreadPriority(RunTime);
+            SetThreadPriority(_runTime);
         }
 
         private void AboveNormalToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1356,7 +1361,7 @@ namespace TSP
                 ProcessPriorityToolStripMenuItem.ShowDropDown();
                 SetPriorityToolStripMenuItem.ShowDropDown();
             }
-            setThreadPriority(RunTime);
+            SetThreadPriority(_runTime);
         }
 
         private void NormalToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1378,7 +1383,7 @@ namespace TSP
                 ProcessPriorityToolStripMenuItem.ShowDropDown();
                 SetPriorityToolStripMenuItem.ShowDropDown();
             }
-            setThreadPriority(RunTime);
+            SetThreadPriority(_runTime);
         }
 
         private void BelowNormalToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1400,7 +1405,7 @@ namespace TSP
                 ProcessPriorityToolStripMenuItem.ShowDropDown();
                 SetPriorityToolStripMenuItem.ShowDropDown();
             }
-            setThreadPriority(RunTime);
+            SetThreadPriority(_runTime);
         }
 
         private void LowToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1422,14 +1427,14 @@ namespace TSP
                 ProcessPriorityToolStripMenuItem.ShowDropDown();
                 SetPriorityToolStripMenuItem.ShowDropDown();
             }
-            setThreadPriority(RunTime);
+            SetThreadPriority(_runTime);
         }
 
         private void SetAffinityToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ProcessorAffinityForm paf = new ProcessorAffinityForm();
+            var paf = new ProcessorAffinityForm();
             paf.ShowDialog();
-            countCPUCore = calcCountOfCPU();
+            _countCpuCore = CalcCountOfCpu();
         }
 
         private void pGAToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1502,16 +1507,16 @@ namespace TSP
     }
     public struct ThreadToken
     {
-        public ThreadToken(int Thread_No, int _length, int _startIndex)
+        public ThreadToken(int threadNo, int length, int startIndex)
         {
-            No = Thread_No;
-            length = _length;
-            startIndex = _startIndex;
-            rand = new Random();
+            No = threadNo;
+            Length = length;
+            StartIndex = startIndex;
+            Rand = new Random();
         }
         public int No;
-        public int length;
-        public int startIndex;
-        public Random rand;
+        public int Length;
+        public int StartIndex;
+        public Random Rand;
     };
 }

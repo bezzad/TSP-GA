@@ -16,3 +16,23 @@ D:\Send Projects\TSP\src\TSP\obj\Debug\TSP.TimerGraphs.TimeGenerationGraph.resou
 D:\Send Projects\TSP\src\TSP\obj\Debug\TSP.csproj.GenerateResource.Cache
 D:\Send Projects\TSP\src\TSP\obj\Debug\TSP.exe
 D:\Send Projects\TSP\src\TSP\obj\Debug\TSP.pdb
+D:\programming\Projecting\TSP\src\TSP\obj\Debug\TSP.csprojAssemblyReference.cache
+D:\programming\Projecting\TSP\src\TSP\obj\Debug\TSP.EnterNumberRandomPointForm.resources
+D:\programming\Projecting\TSP\src\TSP\obj\Debug\TSP.MainForm.resources
+D:\programming\Projecting\TSP\src\TSP\obj\Debug\TSP.FormAbout.resources
+D:\programming\Projecting\TSP\src\TSP\obj\Debug\TSP.ProcessorAffinityForm.resources
+D:\programming\Projecting\TSP\src\TSP\obj\Debug\TSP.Properties.Resources.resources
+D:\programming\Projecting\TSP\src\TSP\obj\Debug\TSP.TimerGraphs.GenerationFitnessGraph.resources
+D:\programming\Projecting\TSP\src\TSP\obj\Debug\TSP.TimerGraphs.TimeFitnessGraph.resources
+D:\programming\Projecting\TSP\src\TSP\obj\Debug\TSP.TimerGraphs.TimeGenerationGraph.resources
+D:\programming\Projecting\TSP\src\TSP\obj\Debug\TSP.csproj.GenerateResource.cache
+D:\programming\Projecting\TSP\src\TSP\obj\Debug\TSP.csproj.CoreCompileInputs.cache
+D:\programming\Projecting\TSP\src\TSP\obj\Debug\TSP.exe
+D:\programming\Projecting\TSP\src\TSP\obj\Debug\TSP.pdb
+D:\programming\Projecting\TSP\src\TSP\bin\Debug\TSP.exe
+D:\programming\Projecting\TSP\src\TSP\bin\Debug\TSP.pdb
+D:\programming\Projecting\TSP\src\TSP\bin\Debug\TSP.exe.CodeAnalysisLog.xml
+D:\programming\Projecting\TSP\src\TSP\bin\Debug\TSP.exe.lastcodeanalysissucceeded
+D:\programming\Projecting\TSP\src\TSP\bin\Debug\Microsoft.VisualBasic.PowerPacks.Vs.dll
+D:\programming\Projecting\TSP\src\TSP\bin\Debug\ZedGraph.dll
+D:\programming\Projecting\TSP\src\TSP\obj\Debug\TSP.csproj.CopyComplete
