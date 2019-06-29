@@ -88,6 +88,8 @@
   <ItemGroup>
     <Compile Include="Core\Chromosome.cs" />
     <Compile Include="Core\CrossoverHelper.cs" />
+    <Compile Include="Core\GeneticAlgorithm.cs" />
+    <Compile Include="Core\Random.cs" />
     <Compile Include="EnterNumberRandomPointForm.cs">
       <SubType>Form</SubType>
     </Compile>

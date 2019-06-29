@@ -55,9 +55,7 @@ namespace TSP
 
         // save number of all city
         public int CounterCity { get; private set; }
-
-        // Save DNA information in Chromosome Array
-        private Chromosome[] Population { get; set; }
+        public GeneticAlgorithm Genetic { get; private set; }
 
         // create new process or for end process
         Thread _runTime;
@@ -268,15 +266,15 @@ namespace TSP
         /// </summary>
         public void Ga()
         {
+            var rand = new System.Random();
+            var eliteFitness = double.MaxValue;
             //
             // set cities position
             SetCitiesPosition(OvalShapeCity);
-
             //
             // initialize Parallel Computing for GA
             CountCpuCore = CalcCountOfCpu(); // Calculate number of active core or CPU for this app
             _tokenSource = new CancellationTokenSource();
-
             //
             // set Start TickTime
             _startedTick = Environment.TickCount;
@@ -294,22 +292,8 @@ namespace TSP
                 _pPlistTgg[0].Clear();
             }
             //
-            var rand = new Random();
-
-            var eliteFitness = double.MaxValue;
-
-            #region Population
-            // create first population by PopulationNumber = 500;
-            // initialize population
-            Population = Enumerable.Range(0, PopulationNumber).Select(r => new Chromosome(CounterCity).Randomize()).ToArray();
-            #endregion
-
-            #region Evaluate Fitness
-            for (var i = 0; i < PopulationNumber; i++)
-                Population[i].Evaluate();
-
-            #endregion
-
+            Genetic = new GeneticAlgorithm(CounterCity, PopulationNumber);
+            
             var count = 0;
             SetValue(0);
             //toolStripProgressBar1.Value = 0;
@@ -350,19 +334,19 @@ namespace TSP
                 // 
                 for (var i = PopulationNumber - 1; i > 0; i--)
                     for (var j = 1; j <= i; j++)
-                        if (Population[j - 1].Fitness > Population[j].Fitness)
+                        if (Genetic.Population[j - 1].Fitness > Genetic.Population[j].Fitness)
                         {
-                            var ch = Population[j - 1];
-                            Population[j - 1] = Population[j];
-                            Population[j] = ch;
+                            var ch = Genetic.Population[j - 1];
+                            Genetic.Population[j - 1] = Genetic.Population[j];
+                            Genetic.Population[j] = ch;
                         }
                 //
                 #endregion
 
                 #region Elitism
-                if (eliteFitness > Population[0].Fitness)
+                if (eliteFitness > Genetic.Population[0].Fitness)
                 {
-                    eliteFitness = Population[0].Fitness;
+                    eliteFitness = Genetic.Population[0].Fitness;
                     SetTimeGraph(eliteFitness, count, true);
 
                     if (dynamicalGraphicToolStripMenuItem.Checked) // Design if Graphically is ON
@@ -371,7 +355,7 @@ namespace TSP
                     }
                     //
                     //-----------------------------------------------------------------------------
-                    SetLenghtText(Population[0].Fitness.ToString());
+                    SetLenghtText(Genetic.Population[0].Fitness.ToString());
                     //
                 }
                 //else setTimeGraph(EliteFitness, count, false); // just refresh Generation Graph's
@@ -438,12 +422,12 @@ namespace TSP
             // calculate Addition of all fitness
             double sumFitness = 0;
             for (var i = 0; i < PopulationNumber; i++)
-                sumFitness += Population[i].Fitness;
+                sumFitness += Genetic.Population[i].Fitness;
             // calculate Average of All chromosome fitness 
             var aveFitness = sumFitness / PopulationNumber; //Average of all chromosome fitness
             _nKeep = 0; // N_keep start at 0 till Average fitness chromosome
             for (var i = 0; i < PopulationNumber; i++)
-                if (aveFitness >= Population[i].Fitness)
+                if (aveFitness >= Genetic.Population[i].Fitness)
                 {
                     _nKeep++; // counter as 0 ~ fitness Average + 1
                 }
@@ -476,7 +460,7 @@ namespace TSP
         }
 
         // Return Father and Mather chromosome with Probability of chromosome fitness
-        private Chromosome Rank(Random rand)
+        private Chromosome Rank(System.Random rand)
         {
             var r = rand.NextDouble();
             for (var i = 0; i < _nKeep; i++)
@@ -486,9 +470,9 @@ namespace TSP
                 //                  0.6 <  R <= 0.9  ===> Select chromosome[Elite +1] 
                 //                  0.9 <  R <= 1    ===> Select chromosome[Elite +2]
                 // 
-                if (r <= _pn[i]) return Population[i];
+                if (r <= _pn[i]) return Genetic.Population[i];
             }
-            return Population[0]; // if don't run Modality of 'for' then return Elite chromosome 
+            return Genetic.Population[0]; // if don't run Modality of 'for' then return Elite chromosome 
         }
 
         // Check the isotropy All REMNANT chromosome (N_keep)
@@ -497,11 +481,11 @@ namespace TSP
             // Isotropy percent is 50% of All chromosome Fitness
             var perIso = Convert.ToInt32(Math.Truncate(Convert.ToDouble(50 * _nKeep / 100)));
             var counterIsotropy = 0;
-            var bestFitness = Population[0].Fitness;
+            var bestFitness = Genetic.Population[0].Fitness;
             //
             // i start at 1 because DNA_Array[0] is self BestFitness
             for (var i = 1; i < _nKeep; i++)
-                if (bestFitness >= Population[i].Fitness) counterIsotropy++;
+                if (bestFitness >= Genetic.Population[i].Fitness) counterIsotropy++;
 
             // G.A Algorithm did isotropy and app Stopped
             if (counterIsotropy >= perIso) return false;
@@ -603,7 +587,7 @@ namespace TSP
         /// Series Create New chromosome with Father & Mather Chromosome Instead of deleted chromosomes
         /// </summary>
         /// <param name="rand"></param>
-        public void Reproduction(Random rand) // Series 
+        public void Reproduction(System.Random rand) // Series 
         {
             for (var i = _nKeep; i < PopulationNumber; i++)
             {
@@ -631,19 +615,19 @@ namespace TSP
                 //
                 child.Evaluate();
 
-                Interlocked.Exchange(ref Population[i], child); // atomic operation between multiple Thread shared
+                Interlocked.Exchange(ref Genetic.Population[i], child); // atomic operation between multiple Thread shared
             }
         }
         /// <summary>
         /// Parallel Create New chromosome with Father & Mather Chromosome Instead of deleted chromosomes
         /// </summary>
-        public void PReproduction(int startIndex, int length, Random rand) // Parallel 
+        public void PReproduction(int startIndex, int length, System.Random rand) // Parallel 
         {
             for (var i = startIndex; i < (startIndex + length) && i < PopulationNumber; i++)
             {
                 //
                 // for send and check Father & Mather chromosome
-                Chromosome rankFather, rankMather, child;
+                Chromosome rankFather, rankMather;
 
                 // have a problem (maybe Rank_1() == Rank_2()) then Father == Mather
                 // Solve Problem by Loop checker
@@ -655,7 +639,7 @@ namespace TSP
                 while (rankFather == rankMather);
                 //
                 // CrossoverHelper
-                child = rankFather.Crossover(rankMather, rand);
+                var child = rankFather.Crossover(rankMather, rand);
                 //
                 //  run MutationHelper
                 //
@@ -665,15 +649,16 @@ namespace TSP
                 //
                 child.Evaluate();
 
-                Interlocked.Exchange(ref Population[i], child); // atomic operation between multiple Thread shared
+                Interlocked.Exchange(ref Genetic.Population[i], child); // atomic operation between multiple Thread shared
             }
         }
+
         /// <summary>
         /// Parallel Create New chromosome with Father & Mather Chromosome Instead of deleted chromosomes
         /// </summary>
         /// <param name="rand"></param>
         /// <returns></returns>
-        public void PReproduction(Random rand) // Parallel.For 
+        public void PReproduction(System.Random rand) // Parallel.For 
         {
             Parallel.For(_nKeep, PopulationNumber,
                         new ParallelOptions() { MaxDegreeOfParallelism = CountCpuCore, CancellationToken = _tokenSource.Token },
@@ -702,7 +687,7 @@ namespace TSP
                             //
                             child.Evaluate();
 
-                            Interlocked.Exchange(ref Population[i], child); // atomic operation between multiple Thread shared
+                            Interlocked.Exchange(ref Genetic.Population[i], child); // atomic operation between multiple Thread shared
 
                             if (_tokenSource.IsCancellationRequested || _tokenSource.Token.IsCancellationRequested)
                             {
@@ -876,8 +861,8 @@ namespace TSP
                 for (var c = 1; c < CounterCity; c++)
                 {
                     // pop[0] is Elite chromosome or best less Distance -----------------------
-                    point1 = OvalShapeCity[Population[0].Genome[c]].Location;
-                    point0 = OvalShapeCity[Population[0].Genome[c - 1]].Location;
+                    point1 = OvalShapeCity[Genetic.Population[0].Genome[c]].Location;
+                    point0 = OvalShapeCity[Genetic.Population[0].Genome[c - 1]].Location;
 
                     try
                     {
@@ -892,8 +877,8 @@ namespace TSP
                 }
                 // design line between city 0 & last city
                 // pop[0] is Elite chromosome or best less Distance
-                point1 = OvalShapeCity[Population[0].Genome[CounterCity - 1]].Location;
-                point0 = OvalShapeCity[Population[0].Genome[0]].Location;
+                point1 = OvalShapeCity[Genetic.Population[0].Genome[CounterCity - 1]].Location;
+                point0 = OvalShapeCity[Genetic.Population[0].Genome[0]].Location;
 
                 try
                 {
@@ -1025,11 +1010,13 @@ namespace TSP
 
         private void exportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var sfd = new SaveFileDialog();
-            sfd.RestoreDirectory = true;
-            sfd.Title = "Save City Positions";
-            sfd.Filter = "Text files|*.txt";
-            sfd.DefaultExt = "CityPositions.txt";
+            var sfd = new SaveFileDialog
+            {
+                RestoreDirectory = true,
+                Title = @"Save City Positions",
+                Filter = @"Text files|*.txt",
+                DefaultExt = "CityPositions.txt"
+            };
 
             if (sfd.ShowDialog() == DialogResult.OK)
             {
@@ -1124,7 +1111,7 @@ namespace TSP
                 // Min X=1 , Y=84
                 // Max X=FormSize.X-300 , Y=FormSize.Y-85
                 // ...
-                var rand = new Random();
+                var rand = new System.Random();
                 for (var citiesNo = 0; citiesNo < enrpForm.NumberOfCities; citiesNo++)
                 {
                     //
@@ -1485,6 +1472,7 @@ namespace TSP
         }
 
     }
+
     public struct ThreadToken
     {
         public ThreadToken(int threadNo, int length, int startIndex)
@@ -1492,11 +1480,11 @@ namespace TSP
             No = threadNo;
             Length = length;
             StartIndex = startIndex;
-            Rand = new Random();
+            Rand = new System.Random();
         }
         public int No;
         public int Length;
         public int StartIndex;
-        public Random Rand;
+        public System.Random Rand;
     };
 }
