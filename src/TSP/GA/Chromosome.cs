@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -55,6 +54,20 @@ namespace TSP.GA
             //
             // return  loop city distance 
             Fitness = fit;
+        }
+
+        public Chromosome Randomize()
+        {
+            var nums = Enumerable.Range(0, Length).ToList(); // Length:8 => [1,2,3,4,5,6,7,8]
+            for (var g = 0; g < Length; g++)
+            {
+                var rand = new Random().Next(0, nums.Count - 1);
+                Genome[g] = nums[rand];
+                nums.RemoveAt(rand);
+            }
+
+            Evaluate();
+            return this;
         }
 
         private double CalcDistance(Point p1, Point p2)
