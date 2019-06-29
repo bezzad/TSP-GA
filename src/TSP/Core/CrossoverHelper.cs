@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 
-namespace TSP.GA
+namespace TSP.Core
 {
     public static class CrossoverHelper
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TSP.GA
+namespace TSP.Core
 {
     /// <summary>
     /// Get Chromosome by MutationHelper Operand

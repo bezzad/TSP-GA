@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.VisualBasic.PowerPacks;
-using TSP.GA;
+using TSP.Core;
 using TSP.TimerGraphs;
 using ZedGraph;
 using ThreadState = System.Threading.ThreadState;
@@ -299,7 +300,8 @@ namespace TSP
 
             #region Population
             // create first population by PopulationNumber = 500;
-            Populate(rand, PopulationNumber); // initialize population
+            // initialize population
+            Population = Enumerable.Range(0, PopulationNumber).Select(r => new Chromosome(CounterCity).Randomize()).ToArray();
             #endregion
 
             #region Evaluate Fitness
@@ -428,29 +430,6 @@ namespace TSP
         }
 
         #region Generation Tools
-        private void Populate(Random rand, int popNum)
-        {
-            // create first population by PopulationNumber = 500;
-            Population = new Chromosome[popNum];
-            var randNumber = new int[CounterCity];
-            for (var l = 0; l < CounterCity; l++)
-                randNumber[l] = l;
-            for (var i = 0; i < popNum; i++)
-            {
-                var randNum = randNumber;
-                var buffer = CounterCity - 1;
-                Population[i] = new Chromosome(CounterCity);
-                for (var j = 0; j < CounterCity; j++)
-                {
-                    var b = rand.Next(0, buffer);
-                    Population[i].Genome[j] = randNum[b];
-                    var buffer2 = randNum[buffer];
-                    randNum[buffer] = randNum[b];
-                    randNum[b] = buffer2;
-                    buffer--;
-                }
-            }
-        }
 
         //find percent of All chromosome rate for delete Amiss(xRate) or Useful(Nkeep) chromosome
         //x_Rate According by chromosome fitness Average 

@@ -86,8 +86,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GA\Chromosome.cs" />
-    <Compile Include="GA\CrossoverHelper.cs" />
+    <Compile Include="Core\Chromosome.cs" />
+    <Compile Include="Core\CrossoverHelper.cs" />
     <Compile Include="EnterNumberRandomPointForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,7 +106,7 @@
     <Compile Include="FormAbout.Designer.cs">
       <DependentUpon>FormAbout.cs</DependentUpon>
     </Compile>
-    <Compile Include="GA\MutationHelper.cs" />
+    <Compile Include="Core\MutationHelper.cs" />
     <Compile Include="ProcessorAffinityForm.cs">
       <SubType>Form</SubType>
     </Compile>

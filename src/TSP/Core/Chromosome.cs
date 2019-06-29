@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 
-namespace TSP.GA
+namespace TSP.Core
 {
     public class Chromosome
     {
@@ -61,9 +61,9 @@ namespace TSP.GA
             var nums = Enumerable.Range(0, Length).ToList(); // Length:8 => [1,2,3,4,5,6,7,8]
             for (var g = 0; g < Length; g++)
             {
-                var rand = new Random().Next(0, nums.Count - 1);
-                Genome[g] = nums[rand];
-                nums.RemoveAt(rand);
+                var rand = nums.OrderBy(x => Guid.NewGuid()).First(); // set a genome by unique and random numbers between a renge
+                Genome[g] = rand;
+                nums.Remove(rand);
             }
 
             Evaluate();
