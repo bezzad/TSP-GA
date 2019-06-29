@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 
 namespace TSP.GA
 {
@@ -9,67 +11,58 @@ namespace TSP.GA
         /// <summary>
         /// Save any city position One time for all times usage
         /// </summary>
-        public static List<Point> CitiesPosition = new List<Point>();
+        public static List<Point> CitiesPosition { get; set; } = new List<Point>();
 
         /// <summary>
-        /// Integer array for save a Loop way ، between all city
+        /// A Tour or Integer array for save a Loop way ، between all city
         /// </summary>
-        public int[] Tour;
-       
+        public int[] Genome { get; set; }
+
+        /// <summary>
+        /// Number of All City
+        /// </summary>
+        public int Length { get; set; }
+
         /// <summary>
         /// Read-Only Fitness of Chromosome
         /// </summary>
         public double Fitness { get; private set; }
-        
+
         /// <summary>
         /// chromosome for save All City Rout Way
         /// </summary>
-        /// <param name="rangeOfArray">Number of All City</param>
-        public Chromosome(int rangeOfArray) // for define array length
+        /// <param name="len">Number of All City</param>
+        public Chromosome(int len) // for define array length
         {
-            Tour = new int[rangeOfArray];
-            Fitness = -1; // default Sum of distance = -1 or null
-            Clean();
+            Length = len;
+            Genome = Enumerable.Repeat(-1, Length).ToArray();
+            Fitness = double.MaxValue;
         }
 
         /// <summary>
-        /// clear offspring chromosome array by num '-1'
-        /// </summary>
-        private void Clean()
-        {
-            for (var c = 0; c < Tour.Length; c++)
-                Tour[c] = -1;
-        }
-
-        /// <summary>
-        /// Calculate Tour Distance
+        /// Calculate Genome Distance
         /// </summary>
         /// <returns></returns>
-        public void Calculate_Fitness()
+        public void Evaluate()
         {
-            double cast = 0;
-            double x1; // = ovalShape_City[i - 1].Location.X;
-            double x2; // = ovalShape_City[i].Location.X;
-            double y1; // = ovalShape_City[i - 1].Location.Y;
-            double y2; // = ovalShape_City[i].Location.Y;
-            for (int i = 1; i < Tour.Length; i++)
-            {
-                x1 = CitiesPosition[Tour[i - 1]].X;
-                x2 = CitiesPosition[Tour[i]].X;
-                y1 = CitiesPosition[Tour[i - 1]].Y;
-                y2 = CitiesPosition[Tour[i]].Y;
-                cast += Math.Sqrt(((x2 - x1) * (x2 - x1)) + ((y2 - y1) * (y2 - y1)));
-            }
-            //
-            // calculate last loop way (the way is between 0 & last city)
-            x1 = CitiesPosition[Tour[0]].X;
-            x2 = CitiesPosition[Tour[Tour.Length - 1]].X;
-            y1 = CitiesPosition[Tour[0]].Y;
-            y2 = CitiesPosition[Tour[Tour.Length - 1]].Y;
-            cast += Math.Sqrt(((x2 - x1) * (x2 - x1)) + ((y2 - y1) * (y2 - y1)));
+            double fit = 0;
+            for (var i = 0; i < Length - 2; i++)
+                fit += CalcDistance(CitiesPosition[Genome[i]], CitiesPosition[Genome[i + 1]]);
+
+            // calc first node distance in from last node
+            //fit += CalcDistance(CitiesPosition[Genome[0]], CitiesPosition[Genome[Length - 1]]);
+
             //
             // return  loop city distance 
-            Fitness = cast;
+            Fitness = fit;
+        }
+
+        private double CalcDistance(Point p1, Point p2)
+        {
+            var xDiff = p2.X - p1.X;
+            var yDiff = p2.Y - p1.Y;
+
+            return Math.Sqrt(xDiff * xDiff + yDiff * yDiff);
         }
     }
 }

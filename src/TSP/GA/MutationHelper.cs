@@ -31,11 +31,11 @@ namespace TSP.GA
             //                          0 4 2 3 1 5 6 7 
             //
             // Step 1: -------------- Select 2 bit by Random Number -----------------------
-            int bit0 = rand.Next(0, child.Tour.Length - 1);
+            int bit0 = rand.Next(0, child.Genome.Length - 1);
             int bit1;
             do
             {
-                bit1 = rand.Next(0, child.Tour.Length - 1);
+                bit1 = rand.Next(0, child.Genome.Length - 1);
             }
             // if bit0 == bit1 then no mutate because selected bit change by self
             while (bit1 == bit0); 
@@ -43,13 +43,13 @@ namespace TSP.GA
             // Step 2: +++++++++++++++++++ Change selected bit's +++++++++++++++++++++++++++++
             //
             //         buffer <---- bit0
-            int buffer = child.Tour[bit0];
+            int buffer = child.Genome[bit0];
             //
             //         bit0   <---- bit1
-            child.Tour[bit0] = child.Tour[bit1];
+            child.Genome[bit0] = child.Genome[bit1];
             //
             //         bit1   <---- buffer
-            child.Tour[bit1] = buffer;
+            child.Genome[bit1] = buffer;
             // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         }
     }

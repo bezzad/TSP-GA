@@ -21,7 +21,7 @@ namespace TSP.GA
 
             //
             // define offspring chromosome length
-            Chromosome offspring = new Chromosome(dad.Tour.Length);
+            Chromosome offspring = new Chromosome(dad.Genome.Length);
             
             //
             //          Greedy CrossoverHelper Algorithm
@@ -40,29 +40,29 @@ namespace TSP.GA
             //            Step '5':	      CDEBGFA
             //                           _
             // select point, in example: E
-            int indexDad = rand.Next(0, dad.Tour.Length - 1);
-            int indexMum = mum.Tour.IndexOf(dad.Tour[indexDad]);
+            int indexDad = rand.Next(0, dad.Genome.Length - 1);
+            int indexMum = mum.Genome.IndexOf(dad.Genome[indexDad]);
             //
             // push selected info in offspring array
-            push_info(offspring.Tour, dad.Tour[indexDad], "Center", duplicate, out write);
+            push_info(offspring.Genome, dad.Genome[indexDad], "Center", duplicate, out write);
             //
             // read Left of Dad chromosome & Right of Mum chromosome
             indexDad--; // left loop   <----
             indexMum++; // right loop  ---->
             //
             // -1 because selected point info was saved
-            int childLenght = offspring.Tour.Length - 1; // number of free space or '-1'
+            int childLenght = offspring.Genome.Length - 1; // number of free space or '-1'
             while (childLenght > 0) 
             {
                 // check range of index number 
-                if (indexDad < 0) indexDad = dad.Tour.Length - 1;
-                if (indexMum >= mum.Tour.Length) indexMum = 0;
+                if (indexDad < 0) indexDad = dad.Genome.Length - 1;
+                if (indexMum >= mum.Genome.Length) indexMum = 0;
 
                 write = false;
-                offspring.Tour.push_info(dad.Tour[indexDad], "Left", duplicate, out write);
+                offspring.Genome.push_info(dad.Genome[indexDad], "Left", duplicate, out write);
                 if (write) childLenght--;
                 write = false;
-                offspring.Tour.push_info(mum.Tour[indexMum], "Right", duplicate, out write);
+                offspring.Genome.push_info(mum.Genome[indexMum], "Right", duplicate, out write);
                 if (write) childLenght--;
                 //
                 // REDUCTION 

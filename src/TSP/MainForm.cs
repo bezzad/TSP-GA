@@ -306,7 +306,7 @@ namespace TSP
 
             #region Evaluate Fitness
             for (var i = 0; i < _npop; i++)
-                _pop[i].Calculate_Fitness();
+                _pop[i].Evaluate();
 
             #endregion
 
@@ -449,7 +449,7 @@ namespace TSP
                 for (var j = 0; j < _counterCity; j++)
                 {
                     b = rand.Next(0, buffer);
-                    _pop[i].Tour[j] = randNum[b];
+                    _pop[i].Genome[j] = randNum[b];
                     buffer2 = randNum[buffer];
                     randNum[buffer] = randNum[b];
                     randNum[b] = buffer2;
@@ -656,7 +656,7 @@ namespace TSP
                 //
                 // calculate children chromosome fitness
                 //
-                child.Calculate_Fitness();
+                child.Evaluate();
 
                 Interlocked.Exchange(ref _pop[i], child); // atomic operation between multiple Thread shared
             }
@@ -692,7 +692,7 @@ namespace TSP
                 //
                 // calculate children chromosome fitness
                 //
-                child.Calculate_Fitness();
+                child.Evaluate();
 
                 Interlocked.Exchange(ref _pop[i], child); // atomic operation between multiple Thread shared
             }
@@ -729,7 +729,7 @@ namespace TSP
                             //
                             // calculate children chromosome fitness
                             //
-                            child.Calculate_Fitness();
+                            child.Evaluate();
 
                             Interlocked.Exchange(ref _pop[i], child); // atomic operation between multiple Thread shared
 
@@ -899,8 +899,8 @@ namespace TSP
                 for (var c = 1; c < _counterCity; c++)
                 {
                     // pop[0] is Elite chromosome or best less Distance -----------------------
-                    point1 = OvalShapeCity[_pop[0].Tour[c]].Location;
-                    point0 = OvalShapeCity[_pop[0].Tour[c - 1]].Location;
+                    point1 = OvalShapeCity[_pop[0].Genome[c]].Location;
+                    point0 = OvalShapeCity[_pop[0].Genome[c - 1]].Location;
 
                     try
                     {
@@ -915,8 +915,8 @@ namespace TSP
                 }
                 // design line between city 0 & last city
                 // pop[0] is Elite chromosome or best less Distance
-                point1 = OvalShapeCity[_pop[0].Tour[_counterCity - 1]].Location;
-                point0 = OvalShapeCity[_pop[0].Tour[0]].Location;
+                point1 = OvalShapeCity[_pop[0].Genome[_counterCity - 1]].Location;
+                point0 = OvalShapeCity[_pop[0].Genome[0]].Location;
 
                 try
                 {
@@ -1205,7 +1205,7 @@ namespace TSP
                 if (OvalShapeCity.Count <= 1)
                 {
                     btnStartStop.Checked = false;
-                    MessageBox.Show("Please Create some cities for a tour!", "Empty Tour Exception",
+                    MessageBox.Show("Please Create some cities for a tour!", "Empty Genome Exception",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                     return;
