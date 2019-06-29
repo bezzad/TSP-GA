@@ -10,7 +10,7 @@ namespace TSP.Core
     {
         // Function Uniform of class MutationHelper
         // change a bit of offspring chromosome for mutation
-        private static void Mutation (this Chromosome child, System.Random rand)
+        public static void Mutation (this Chromosome child, System.Random rand)
         {
             // Random Number for choose 2 bit between 0 ~ (offspring.Length - 1)
             // if(offspring.Length == 8)

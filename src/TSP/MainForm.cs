@@ -293,7 +293,7 @@ namespace TSP
             }
             //
             //               N , Pop, SR, MR, ReGen, CR
-            Genetic = new GeneticAlgorithm(CounterCity, PopulationNumber, 10, 50, 1000, 75);
+            Genetic = new GeneticAlgorithm(CounterCity, PopulationNumber, 10, 50, 10000, 75);
             
             var count = 0;
             SetValue(0);
@@ -606,11 +606,11 @@ namespace TSP
                 while (rankFather == rankMather);
                 //
                 // CrossoverHelper
-                var child = Genetic.Crossover(rankMather, rankFather);
+                var child = rankMather.Crossover(rankFather, new System.Random());
                 //
                 //  run MutationHelper
                 //
-                Genetic.Mutation(child, Genetic.MutationProbability);
+                child.Mutation(new System.Random());
                 //
                 // calculate children chromosome fitness
                 //
@@ -640,11 +640,11 @@ namespace TSP
                 while (rankFather == rankMather);
                 //
                 // CrossoverHelper
-                var child = Genetic.Crossover(rankMather, rankFather);
+                var child = rankMather.Crossover(rankFather, new System.Random());
                 //
                 //  run MutationHelper
                 //
-                Genetic.Mutation(child, Genetic.MutationProbability);
+                child.Mutation(new System.Random());
                 //
                 // calculate children chromosome fitness
                 //
@@ -678,11 +678,11 @@ namespace TSP
                             while (rankFather == rankMather);
                             //
                             // CrossoverHelper
-                            var child = Genetic.Crossover(rankMather, rankFather);
+                            var child = rankMather.Crossover(rankFather, new System.Random());
                             //
                             //  run MutationHelper
                             //
-                            Genetic.Mutation(child, Genetic.MutationProbability);
+                            child.Mutation(new System.Random());
                             //
                             // calculate children chromosome fitness
                             //

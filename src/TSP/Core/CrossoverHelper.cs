@@ -13,7 +13,7 @@ namespace TSP.Core
         /// <param name="mum">Mather chromosome for product Children Chromosome</param>
         /// <param name="rand">random reproducer</param>
         /// <returns></returns>
-        private static Chromosome Crossover(this Chromosome dad, Chromosome mum, System.Random rand)
+        public static Chromosome Crossover(this Chromosome dad, Chromosome mum, System.Random rand)
         {
             // for check written or duplicated
             bool write = false;
