@@ -266,7 +266,7 @@ namespace TSP
         /// </summary>
         public void Ga()
         {
-            var rand = new System.Random();
+            var rand = new Random(DateTime.Now.GetHashCode());
             var eliteFitness = double.MaxValue;
             //
             // set cities position
