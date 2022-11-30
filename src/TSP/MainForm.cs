@@ -1215,7 +1215,7 @@ namespace TSP
                 // Solve();
                 try
                 {
-                    if (!_runTime.IsAlive)
+                    if (_runTime?.IsAlive != true)
                     {
                         _runTime = new Thread(Ga);
                         SetThreadPriority(_runTime);
