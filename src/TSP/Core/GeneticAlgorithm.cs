@@ -7,6 +7,7 @@ namespace TSP.Core
 {
     public class GeneticAlgorithm
     {
+        private Random _random = new Random(DateTime.Now.GetHashCode());
         public int ChromosomeLenght { get; set; }
         public int PopulationLenght { get; set; }
         public int SelectionPercent { get; set; }
@@ -42,7 +43,7 @@ namespace TSP.Core
 
             return Population.First(); // Elitest chromosome
         }
-        
+
         public bool Evaluation()
         {
             Population = Population.OrderBy(ch => ch.Fitness).ToArray(); // sort 
@@ -103,11 +104,10 @@ namespace TSP.Core
             //      ^     ^
             //        SWAP
             //
-            if (new Random(0, 100).Next() <= rate)
+            if (_random.Next(0, 100) <= rate)
             { // if random number occured within mutation rate
-                var rand = new Random(0, chromosome.Length - 1);
-                var gen1 = rand.Next();
-                var gen2 = rand.Next();
+                var gen1 = _random.Next(0, chromosome.Length - 1);
+                var gen2 = _random.Next(0, chromosome.Length - 1);
                 if (gen1 == gen2)
                     throw new Exception("Mutation gens are duplicate!");
                 // swape two gene from genome
@@ -135,8 +135,8 @@ namespace TSP.Core
         /// </summary>
         protected T[] Pmx<T>(T[] mom, T[] dad, int? cut1 = null, int? cut2 = null) where T : struct
         {
-            cut1 = cut1 ?? new Random(1, mom.Length / 2).Next();   // left side of crossover section
-            cut2 = cut2 ?? new Random(cut1.Value + 1, mom.Length - 2).Next();   // right side of crossover section
+            cut1 = cut1 ?? _random.Next(1, mom.Length / 2);   // left side of crossover section
+            cut2 = cut2 ?? _random.Next(cut1.Value + 1, mom.Length - 2);   // right side of crossover section
             var child = new T[mom.Length];
             var usedGenes = new HashSet<T>();
             var childEmptyIndexes = new Stack<int>();
@@ -193,8 +193,9 @@ namespace TSP.Core
 
         protected (Chromosome mom, Chromosome dad) GetRandomParent()
         {
-            var rand = new Random(0, Population.Length - 1);
-            return (Population[rand.Next()], Population[rand.Next()]);
+            var rand1 = _random.Next(0, Population.Length - 1);
+            var rand2 = _random.Next(0, Population.Length - 1);
+            return (Population[rand1], Population[rand2]);
         }
 
     }
